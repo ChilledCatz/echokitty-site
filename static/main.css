@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Selectric';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Selectric'), url('%sveltekit.assets%/SLC_.woff') format('woff');
+}
+
+body {
+    /* background-color: #839ca9; */
+    height: 100vh;
+    overflow: auto;
+    color: white;
+    font-family: Selectric;
+    font-size: medium;
+    image-rendering: pixelated;
+}
+
+p + p {
+    margin-top: 16px;
+}
+
+a {
+    color: #0090e0;
+}
+
+a:visited {
+    color: #0090e0;
+}
+
+br {
+    margin: 0px 4px;
+}
