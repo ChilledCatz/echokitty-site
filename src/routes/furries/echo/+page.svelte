@@ -1,7 +1,8 @@
 <script lang="ts">
-    import { changeBackground } from "$lib/state.svelte";
+    import { setBackground } from "$lib/state.svelte";
+    import coverImg from "$lib/assets/echo/coverImg.png"
 
-    changeBackground('#6d838e')
+    setBackground('#6d838e', coverImg)
 </script>
 
 <svelte:head>
@@ -9,4 +10,3 @@
 </svelte:head>
 
 <h1>echo</h1>
-

@@ -10,7 +10,9 @@ body {
     height: 100vh;
     overflow: auto;
     color: white;
-    font-family: Selectric;
+    /* font-family: Selectric; */
+    /* todo: issue with importing font if not installed */
+    font-family: hack, monospace, sans-serif;
     font-size: medium;
     image-rendering: pixelated;
 }
