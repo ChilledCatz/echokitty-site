@@ -26,6 +26,7 @@
         position: absolute;
         top: 0;
         left: 250px;
+        z-index: 10;
         background-color: #131316;
         border-right: 2px solid;
         border-bottom: 2px solid;

@@ -14,6 +14,12 @@ export let backgroundState = $state<{
     },
 })
 
+export let galleryState = $state<{
+    src: string | null
+    alt: string | null
+    description: string | null
+}>({src: null, alt: null, description: null})
+
 export function setBackground(color: string, image: string | null) {
     backgroundState.color = color
 
@@ -34,4 +40,10 @@ export function setBackground(color: string, image: string | null) {
             backgroundState.image.src = null
         }, 300)
     }
+}
+
+export function setGalleryState(src: string | null, alt: string | null, description: string | null) {
+    galleryState.src = src
+    galleryState.alt = alt
+    galleryState.description = description
 }
