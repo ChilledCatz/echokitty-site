@@ -10,8 +10,8 @@
 <div
     class="container"
     style="{backgroundState.image.hasImage
-        ? 'width: 40%; left: 10%; top: 5%;'
-        : 'width: 50%; inset: 5% 25% 0% 25%;'} ;"
+        ? 'width: 40%; left: 10%; top: 60px;'
+        : 'width: 50%; left: 25%; right: 25%; top: 60px;'} ;"
 >
     {@render children()}
 </div>
@@ -28,12 +28,10 @@
 <style>
     .container {
         position: absolute;
-        display: inline-block;
-        height: 25%;
         min-height: 33%;
         max-height: 100%;
         padding: 24px;
-        z-index: 10;
+        z-index: 0;
         background-color: #131316;
         border: 2px solid;
         transition: all 0.3s;
@@ -42,7 +40,7 @@
     .background {
         position: absolute;
         inset: 0;
-        z-index: -10;
+        z-index: -20;
         transition: all 1s;
     }
 
@@ -52,7 +50,7 @@
         top: 0;
         width: full;
         height: 100%;
-        z-index: 0;
+        z-index: -20;
         object-fit: cover;
         transition: all 1s;
         pointer-events: none;

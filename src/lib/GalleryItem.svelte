@@ -12,13 +12,13 @@
 
 <style>
     .galleryImage {
-        width: 100px;
+        width: 125px;
         height: full;
         object-fit: cover;
     }
 
     .thumbnail {
-        width: 100px;
+        width: 125px;
         height: full;
         cursor: pointer;
         transition: all 0.3s;

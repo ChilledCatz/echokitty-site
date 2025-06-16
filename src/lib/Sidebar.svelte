@@ -1,4 +1,6 @@
 <script lang="ts">
+    import SidebarDropdown from "./SidebarDropdown.svelte";
+
     const links = [
         { href: "/home", title: "home" },
         { href: "/about", title: "about me" },
@@ -12,10 +14,17 @@
 
 <div class="sidebar">
     <div class="container">
-        <a href="/home">home</a>
+        <!-- <a href="/home">home</a>
         <a href="/about">about</a>
         <a href="/furries/echo">echo</a>
-        <a href="/furries/glade">glade</a>
+        <a href="/furries/glade">glade</a> -->
+        {#each links as link}
+            {#if link.children}
+                <SidebarDropdown children={link.children} title={link.title} />
+            {:else}
+                <a href={link.href}>{link.title}</a>
+            {/if}
+        {/each}
     </div>
 </div>
 
@@ -24,16 +33,18 @@
         width: 100%;
         margin: 16px 32px;
         display: flex;
-        justify-content: space-between;
+        gap: 2rem;
     }
 
     .sidebar {
         width: 100vw;
-        height: 5%;
-        z-index: 20;
-        position: fixed;
+        height: 52px;
+        z-index: 10;
+        position: sticky;
         top: 0;
         left: 0;
+        margin-top: -20px;
+        margin-left: -8px;
         padding: 4px 0px;
         display: flex;
         background-color: #131316;
