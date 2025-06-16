@@ -20,5 +20,12 @@
     .thumbnail {
         width: 100px;
         height: full;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .thumbnail:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 16px -3px rgb(255 255 255 / 0.1), 0 4px 6px -4px rgb(255 255 255 / 0.1);
     }
 </style>

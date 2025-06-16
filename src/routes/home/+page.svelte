@@ -1,5 +1,8 @@
 <script lang="ts">
     import echoMid_bfThumbnail from "$lib/assets/echo/thumbnails/echoMid_bfThumbnail.png";
+    import { setBackground } from '$lib/state.svelte'
+
+    setBackground('#839ca9', null)
 </script>
 
 <svelte:head>

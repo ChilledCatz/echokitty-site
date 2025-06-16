@@ -1,37 +1,42 @@
-<div class="box">
-    <div class="sidebar">
-        <div>me:</div>
-        <hr />
-        <li><a href="/home">home</a></li>
-        <li><a href="/about">about</a></li>
+<script lang="ts">
+    const links = [
+        { href: "/home", title: "home" },
+        { href: "/about", title: "about me" },
+        { href: "/furries", title: "furries", children: [
+            { href: "/furries/echo", title: "echo" },
+            { href: "/furries/glade", title: "glade" }
+        ] }
+    ]
+</script>
 
-        <div style="margin-top:10px;">gay furries:</div>
-        <hr />
-        <li><a href="/furries/echo">echo</a></li>
-        <li><a href="/furries/glade">glade</a></li>
+
+<div class="sidebar">
+    <div class="container">
+        <a href="/home">home</a>
+        <a href="/about">about</a>
+        <a href="/furries/echo">echo</a>
+        <a href="/furries/glade">glade</a>
     </div>
 </div>
 
 <style>
-    .box {
-        width: 50px;
-        height: 100%;
-        z-index: 10;
-        position: fixed;
-        left: 0;
-        top: 0; 
-        background-color: #131316;
+    .container {
+        width: 100%;
+        margin: 16px 32px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .sidebar {
-        width: 200px;
-        height: 100%;
+        width: 100vw;
+        height: 5%;
         z-index: 20;
         position: fixed;
         top: 0;
         left: 0;
-        padding: 16px 16px 16px 32px;
+        padding: 4px 0px;
+        display: flex;
         background-color: #131316;
-        border-right: 2px solid;
+        border-bottom: 2px solid;
     }
 </style>

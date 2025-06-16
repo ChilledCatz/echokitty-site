@@ -7,32 +7,39 @@
 </script>
 
 <Sidebar />
-<div class="container">
+<div
+    class="container"
+    style="{backgroundState.image.hasImage
+        ? 'width: 40%; left: 10%; top: 5%;'
+        : 'width: 50%; inset: 5% 25% 0% 25%;'} ;"
+>
     {@render children()}
 </div>
 <div class="background" style="background-color: {backgroundState.color}"></div>
-<img 
-    class="backgroundImage" 
-    src={backgroundState.image.src} 
-    alt={backgroundState.image.alt} 
-    style="{backgroundState.image.show ? "opacity: 100%; transition: all 1s;" : "opacity: 0%; transition: all 0.3s;"} ;"
->
+<img
+    class="backgroundImage"
+    src={backgroundState.image.src}
+    alt={backgroundState.image.alt}
+    style="{backgroundState.image.show
+        ? 'opacity: 100%; transition: all 1s;'
+        : 'opacity: 0%; transition: all 0.3s;'} ;"
+/>
 
 <style>
     .container {
-        width: 40%;
-        padding: 12px 12px 12px 24px;
-        display: inline-block;
         position: absolute;
-        top: 0;
-        left: 250px;
+        display: inline-block;
+        height: 25%;
+        min-height: 33%;
+        max-height: 100%;
+        padding: 24px;
         z-index: 10;
         background-color: #131316;
-        border-right: 2px solid;
-        border-bottom: 2px solid;
+        border: 2px solid;
+        transition: all 0.3s;
     }
 
-    .background { 
+    .background {
         position: absolute;
         inset: 0;
         z-index: -10;
@@ -48,6 +55,7 @@
         z-index: 0;
         object-fit: cover;
         transition: all 1s;
+        pointer-events: none;
     }
 
     @keyframes imageEnter {

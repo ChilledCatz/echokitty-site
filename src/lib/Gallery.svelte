@@ -20,6 +20,8 @@
 
 <style>
     .gallery {
+        width: 100vw;
+        height: 100vh;
         position: fixed;
         inset: 0;
         z-index: 20;
@@ -28,16 +30,25 @@
     }
 
     .galleryFull {
-        max-width: 85%;
+        position: fixed;
+        max-width: 80%;
         height: auto;
-        max-height: 85%;
+        max-height: 80%;
         object-fit: contain;
+        inset: 10% 20% 0% 19.5%;
     }
 
     .description {
         position: fixed;
-        left: 50%;
+        bottom: 0;
+        left: 10%;
+        right: 10%;
         bottom: 2.5%;
         text-align: center;
+        background-color: blue;
+        padding: 10px;
+        border: solid 2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 </style>

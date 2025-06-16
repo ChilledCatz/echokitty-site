@@ -10,7 +10,7 @@
             src: echoMid_bf,
             thumbnail: echoMid_bfThumbnail,
             alt: "a placeholder alt, sorry",
-            description: "a placeholder description"
+            description: "a placeholder description. i'm testing what happens once i fill this out more by typing more stuff out wheeeeeeeeeeeeee"
         }   
     ]
 
