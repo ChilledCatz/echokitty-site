@@ -22,7 +22,6 @@
     .thumbnailGrid {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 1rem;
         width: 100%;
         justify-items: center;
     }
