@@ -1,5 +1,6 @@
 <script lang="ts">
     import SidebarDropdown from "./SidebarDropdown.svelte";
+	import SidebarLink from "./SidebarLink.svelte";
 
     const links = [
         { href: "/home", title: "home" },
@@ -12,42 +13,27 @@
 </script>
 
 
-<div class="sidebar">
-    <div class="container">
-        <!-- <a href="/home">home</a>
-        <a href="/about">about</a>
-        <a href="/furries/echo">echo</a>
-        <a href="/furries/glade">glade</a> -->
-        {#each links as link}
-            {#if link.children}
-                <SidebarDropdown children={link.children} title={link.title} />
-            {:else}
-                <a href={link.href}>{link.title}</a>
-            {/if}
-        {/each}
-    </div>
-</div>
+<nav class="sidebar">
+    {#each links as link}
+        {#if link.children}
+            <SidebarDropdown children={link.children} title={link.title} />
+        {:else}
+            <!-- <a href={link.href}>{link.title}</a> -->
+            <SidebarLink url={link.href} title={link.title} />
+        {/if}
+    {/each}
+</nav>
 
 <style>
-    .container {
-        width: 100%;
-        margin: 16px 32px;
-        display: flex;
-        gap: 2rem;
-    }
-
     .sidebar {
-        width: 100vw;
-        height: 52px;
-        z-index: 10;
         position: sticky;
-        top: 0;
-        left: 0;
-        margin-top: -20px;
-        margin-left: -8px;
-        padding: 4px 0px;
-        display: flex;
+        padding: 4px;
         background-color: #131316;
-        border-bottom: 2px solid;
+        width: 80px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
     }
 </style>
