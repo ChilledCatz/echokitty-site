@@ -6,15 +6,13 @@
     let { children }: LayoutProps = $props();
 </script>
 
-<Sidebar />
-<div
-    class="container"
-    style="{backgroundState.image.hasImage
-        ? 'width: 40%; left: 10%; top: 60px;'
-        : 'width: 50%; left: 21.6%; top: 60px;'} ;"
->
-    {@render children()}
+<div class="site">
+    <Sidebar />
+    <div class="container">
+        {@render children()}
+    </div>
 </div>
+
 <div class="background" style="background-color: {backgroundState.color}"></div>
 <img
     class="backgroundImage"
@@ -26,14 +24,16 @@
 />
 
 <style>
+    .site {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 84px 1fr;
+    }
+
     .container {
-        position: absolute;
-        min-height: 33%;
-        max-height: 100%;
         padding: 24px;
         z-index: 0;
-        background-color: #131316;
-        border: 2px solid;
         transition: all 0.3s;
     }
 
