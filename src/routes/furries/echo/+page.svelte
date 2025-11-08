@@ -1,6 +1,6 @@
 <script lang="ts">
     import { setBackground } from "$lib/state.svelte";
-    import Gallery from "$lib/Gallery.svelte";
+    import Gallery from "$lib/components/Gallery.svelte";
     import * as images from "$lib/assets/echo/index";
 
     const items: { src: any, thumbnail: any, alt: string, description: any }[] = [

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Sidebar from "$lib/Sidebar.svelte";
+    import Sidebar from "$lib/components/Sidebar.svelte";
     import { backgroundState } from "$lib/state.svelte";
     import type { LayoutProps } from "./$types";
 
@@ -11,7 +11,7 @@
     class="container"
     style="{backgroundState.image.hasImage
         ? 'width: 40%; left: 10%; top: 60px;'
-        : 'width: 50%; left: 25%; right: 25%; top: 60px;'} ;"
+        : 'width: 50%; left: 21.6%; top: 60px;'} ;"
 >
     {@render children()}
 </div>
