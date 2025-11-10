@@ -9,4 +9,21 @@
     <title>glade</title>
 </svelte:head>
 
-<h1>glade</h1>
+<div class="characterSheet">
+    <h1>glade</h1>
+</div>
+
+<style>
+    .characterSheet {
+        width: 50%;
+        background-color: #131316;
+        border: 2px solid;
+        padding: 12px;
+    }
+
+    @media only screen and (max-width: 535px) {
+        .characterSheet {
+            width: 100%;
+        }
+    }
+</style>

@@ -59,4 +59,16 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    @media only screen and (max-width: 535px) {
+        .thumbnailGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        .thumbnailGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
 </style>

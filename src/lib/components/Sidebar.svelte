@@ -18,7 +18,6 @@
         {#if link.children}
             <SidebarDropdown children={link.children} title={link.title} />
         {:else}
-            <!-- <a href={link.href}>{link.title}</a> -->
             <SidebarLink url={link.href} title={link.title} />
         {/if}
     {/each}
@@ -30,10 +29,25 @@
         padding: 4px;
         background-color: #131316;
         width: 80px;
-        height: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 2rem;
+        gap: 1rem;
+        z-index: 99;
+    }
+
+    @media screen and (max-width: 535px) {
+        .sidebar {
+            width: 100%;
+            height: 64px;
+            position: fixed;
+            top: 0;
+            justify-content: center;
+            flex-direction: row;
+            align-items: flex-start;
+            z-index: 3;
+            border-bottom: 2px solid white;
+        }
     }
 </style>

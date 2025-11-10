@@ -14,7 +14,6 @@ body {
     /* font-family: Selectric; */
     font-family: hack, monospace, sans-serif;
     font-size: medium;
-    image-rendering: pixelated;
 }
 
 p + p {

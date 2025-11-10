@@ -5,12 +5,31 @@
 </script>
 
 <button class="link" onclick={() => goto(url)}>
-    {title}
+    <div>
+        {title}
+    </div>
 </button>
 
 <style>
     .link {
-        width: 100%;
-        height: 80px;
+        display: flex;
+        place-content: center;
+        width: 64px;
+        height: 64px;
+        margin-left: 6px;
+        color: #0090e0;
+        background: linear-gradient(to left, rgba(0,0,0,0) 50%, blue 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.3s ease;
+        border: none;
+        font-family: hack, monospace, sans-serif;
+        font-size: medium;
+    }
+
+    .link:hover {
+        background-position: left bottom;
+        color: white;
+        cursor: pointer;
     }
 </style>

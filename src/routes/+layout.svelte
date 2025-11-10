@@ -56,6 +56,13 @@
         pointer-events: none;
     }
 
+    @media only screen and (max-width: 535px) {
+        .container {
+            margin-top: 64px;
+            width: calc(100vw - 48px);
+        }
+    }
+
     @keyframes imageEnter {
         from {
             opacity: 0%;

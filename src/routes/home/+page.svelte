@@ -1,6 +1,14 @@
 <script lang="ts">
     import echoMid_bfThumbnail from "$lib/assets/echo/thumbnails/echoMid_bfThumbnail.png";
     import { setBackground } from '$lib/state.svelte'
+    import { onMount } from "svelte";
+
+    let gridContainer: HTMLDivElement;
+    let childCount = 0;
+
+    onMount(() => {
+        childCount = gridContainer.children.length;
+    })
 
     setBackground('#839ca9', null)
 </script>
@@ -9,7 +17,7 @@
     <title>home</title>
 </svelte:head>
 
-<div class="homeGrid">
+<div class="homeGrid" bind:this={gridContainer}>
     <div class="introduction">
         <h1>:3</h1>
         <img
@@ -56,10 +64,30 @@
     }
 
     img {
-        float: left;
         object-fit: cover;
         width: 150px;
         height: 225px;
         margin: 0px 20px 0px 0px;
+    }
+
+    @media only screen and (max-width: 996px) {
+        .homeGrid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    @media only screen and (max-width: 535px) {
+        .homeGrid {
+            display: flex;
+            flex-direction: column;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            grid-template-rows: unset;
+        }
+
+        .introduction {
+            grid-column: unset;
+            grid-row: unset;
+        }
     }
 </style>
