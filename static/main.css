@@ -5,8 +5,14 @@
   src: local('Selectric'), url('%sveltekit.assets%/SLC_.woff') format('woff');
 }
 
+:root {
+    --container-padding: 24px;
+    --sidebar-width: 80px;
+    --sidebar-padding: 4px;
+}
+
 body {
-    /* background-color: #839ca9; */
+    background-color: #839ca9;
     margin: 0;
     height: 100vh;
     overflow: auto;
@@ -14,6 +20,7 @@ body {
     /* font-family: Selectric; */
     font-family: hack, monospace, sans-serif;
     font-size: medium;
+    transition: all 1s;
 }
 
 p + p {

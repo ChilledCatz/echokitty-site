@@ -1,19 +1,17 @@
 <script lang="ts">
     import Sidebar from "$lib/components/Sidebar.svelte";
     import { backgroundState } from "$lib/state.svelte";
+	import { fade } from "svelte/transition";
     import type { LayoutProps } from "./$types";
 
     let { children }: LayoutProps = $props();
 </script>
 
-<div class="site">
-    <Sidebar />
-    <div class="container">
-        {@render children()}
-    </div>
+<Sidebar />
+<div class="container">
+    {@render children()}
 </div>
 
-<div class="background" style="background-color: {backgroundState.color}"></div>
 <img
     class="backgroundImage"
     src={backgroundState.image.src}
@@ -24,24 +22,12 @@
 />
 
 <style>
-    .site {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 84px 1fr;
-    }
-
     .container {
-        padding: 24px;
+        padding: var(--container-padding);
         z-index: 0;
         transition: all 0.3s;
-    }
-
-    .background {
-        position: absolute;
-        inset: 0;
-        z-index: -20;
-        transition: all 1s;
+        width: calc(100vw - var(--sidebar-width) - (2 * var(--sidebar-padding)) - (2 * var(--container-padding)));
+        margin-left: calc(var(--sidebar-width) + (2 * var(--sidebar-padding)));
     }
 
     .backgroundImage {
@@ -59,6 +45,7 @@
     @media only screen and (max-width: 535px) {
         .container {
             margin-top: 64px;
+            margin-left: unset;
             width: calc(100vw - 48px);
         }
     }

@@ -1,29 +1,43 @@
-export let backgroundState = $state<{
-    color: string
+import { onMount } from 'svelte';
+
+interface BackgroundStateProps {
     image: {
         src: string | null
         alt: string | null
         show: boolean
         hasImage: boolean
     }
-}>({
-    color: '#839ca9',
-    image: {
-        src: null,
-        alt: null,
-        show: false,
-        hasImage: false
-    },
-})
+}
 
-export let galleryState = $state<{
-    src: string | null
-    alt: string | null
+interface GalleryStateProps {
+    src: string | null,
+    alt: string | null,
     description: string | null
-}>({src: null, alt: null, description: null})
+}
+
+export let backgroundState = $state<BackgroundStateProps>(
+    {
+        image: {
+            src: null,
+            alt: null,
+            show: false,
+            hasImage: false
+        },
+    }
+)
+
+export let galleryState = $state<GalleryStateProps>(
+    {
+        src: null, 
+        alt: null, 
+        description: null
+    }
+)
 
 export function setBackground(color: string, image: string | null) {
-    backgroundState.color = color
+    onMount(() => {
+        document.body.style.setProperty('background-color', color)
+    })
 
     if (backgroundState.image.src && image) {
         backgroundState.image.show = false;

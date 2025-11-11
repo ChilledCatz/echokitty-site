@@ -4,7 +4,7 @@
 
     const links = [
         { href: "/home", title: "home" },
-        { href: "/about", title: "about me" },
+        { href: "/about", title: "about" },
         { href: "/furries", title: "furries", children: [
             { href: "/furries/echo", title: "echo" },
             { href: "/furries/glade", title: "glade" }
@@ -25,11 +25,11 @@
 
 <style>
     .sidebar {
-        position: sticky;
+        position: fixed;
         padding: 4px;
         background-color: #131316;
-        width: 80px;
-        height: 100vh;
+        width: var(--sidebar-width);
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -39,9 +39,9 @@
 
     @media screen and (max-width: 535px) {
         .sidebar {
+            position: fixed;
             width: 100%;
             height: 64px;
-            position: fixed;
             top: 0;
             justify-content: center;
             flex-direction: row;

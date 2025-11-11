@@ -1,5 +1,6 @@
 <script lang="ts">
     import { slide } from "svelte/transition";
+    import {clickOutside} from './events/clickOutside';
 
     let {children, title} = $props();
     let isOpen = $state(false);
@@ -8,6 +9,8 @@
 </script>
 
 <button 
+    use:clickOutside
+    onoutsideclick={isOpen = false}
     class="dropdown" 
     onclick={() => isOpen = !isOpen}
     tabindex={0}
@@ -35,8 +38,8 @@
         height: 64px;
         margin-left: 6px;
         text-decoration-line: none;
-        background: linear-gradient(to left, rgba(0,0,0,0) 50%, blue 50%);
-        background-size: 200% 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0) 50%, blue 50%);
+        background-size: 100% 200%;
         background-position: right bottom;
         transition: all 0.3s ease;
         position: relative;
@@ -48,7 +51,7 @@
 
     .dropdown:hover {
         border-color: white;
-        background-position: left bottom;
+        background-position: left top;
         color: white;
         cursor: pointer;
     }
