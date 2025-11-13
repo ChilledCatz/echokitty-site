@@ -8,6 +8,7 @@
 :root {
     --container-padding: 24px;
     --sidebar-width: 80px;
+    --sidebar-height: 52px;
     --sidebar-padding: 4px;
 }
 

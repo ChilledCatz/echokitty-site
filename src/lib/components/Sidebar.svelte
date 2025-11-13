@@ -29,7 +29,7 @@
         padding: 4px;
         background-color: #131316;
         width: var(--sidebar-width);
-        height: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -40,8 +40,8 @@
     @media screen and (max-width: 535px) {
         .sidebar {
             position: fixed;
-            width: 100%;
-            height: 64px;
+            width: 100vw;
+            height: var(--sidebar-height);
             top: 0;
             justify-content: center;
             flex-direction: row;

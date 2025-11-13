@@ -33,7 +33,7 @@
 
     @media only screen and (max-width: 535px) {
         .aboutContainer {
-            width: calc(100vw - 72px);
+            width: unset;
         }
     }
 </style>
