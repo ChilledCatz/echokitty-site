@@ -12,7 +12,7 @@
 		setGalleryState(src, alt, description);
 	}}
 >
-	<img class="thumbnail" src={thumbnail} {alt} />
+	<enhanced:img class="thumbnail" src={thumbnail} {alt} />
 </div>
 
 <style>

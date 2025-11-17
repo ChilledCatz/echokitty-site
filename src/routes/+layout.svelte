@@ -12,14 +12,18 @@
     {@render children()}
 </div>
 
-<img
-    class="backgroundImage"
-    src={backgroundState.image.src}
-    alt={backgroundState.image.alt}
-    style="{backgroundState.image.show
-        ? 'opacity: 100%; transition: all 1s;'
-        : 'opacity: 0%; transition: all 0.3s;'} ;"
-/>
+{#if (backgroundState.image.src)}
+    <enhanced:img
+        in:fade={{ duration: 1000 }}
+        out:fade={{ duration: 300 }}
+        class="backgroundImage"
+        src={backgroundState.image.src}
+        alt={backgroundState.image.alt}
+        style="{backgroundState.image.show
+            ? 'opacity: 100%; transition: all 1s;'
+            : 'opacity: 0%; transition: all 0.3s;'} ;"
+    />
+{/if}
 
 <style>
     .container {

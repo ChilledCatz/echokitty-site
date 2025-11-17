@@ -34,6 +34,7 @@ export let galleryState = $state<GalleryStateProps>(
     }
 )
 
+// @todo: refactor this lmfao
 export function setBackground(color: string, image: string | null) {
     onMount(() => {
         document.body.style.setProperty('background-color', color)

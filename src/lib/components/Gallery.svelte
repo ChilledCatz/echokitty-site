@@ -13,7 +13,7 @@
 </div>
 {#if galleryState.src}
     <div class="gallery" role="none" onkeydown={() => {}} onclick={() => {setGalleryState(null, null, null)}}>
-        <img class="galleryFull" src={galleryState.src} alt={galleryState.alt}>
+        <enhanced:img class="galleryFull" src={galleryState.src} alt={galleryState.alt} />
         <div class="description">{@html galleryState.description}</div>
     </div>
 {/if}
