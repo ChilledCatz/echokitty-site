@@ -10,7 +10,7 @@
         childCount = gridContainer.children.length;
     })
 
-    setBackground('#839ca9', null)
+    setBackground('#839ca9')
 </script>
 
 <svelte:head>

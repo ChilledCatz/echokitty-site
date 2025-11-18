@@ -1,7 +1,7 @@
 <script lang="ts">
     import { setBackground } from '$lib/state.svelte'
 
-    setBackground('#839ca9', null)
+    setBackground('#839ca9')
 </script>
 
 <svelte:head>

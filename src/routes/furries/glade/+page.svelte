@@ -1,13 +1,16 @@
 <script lang="ts">
     import { setBackground } from '$lib/state.svelte'
-    import IMG_3332 from '$lib/assets/pitaya/IMG_3332.png'
+    import IMG_3332 from '$lib/assets/pitaya/IMG_3332.png?enhanced'
+	import BackgroundImage from '$lib/components/BackgroundImage.svelte';
 
-    setBackground('#87a985', IMG_3332)
+    setBackground('#87a985')
 </script>
 
 <svelte:head>
     <title>glade</title>
 </svelte:head>
+
+<BackgroundImage src={IMG_3332} alt="please pleaseplease take this thing off my screen" />
 
 <div class="characterSheet">
     <h1>glade</h1>

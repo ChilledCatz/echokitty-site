@@ -2,6 +2,7 @@
     import { setBackground } from "$lib/state.svelte";
     import Gallery from "$lib/components/Gallery.svelte";
     import * as images from "$lib/assets/echo/index";
+	import BackgroundImage from "$lib/components/BackgroundImage.svelte";
 
     const items: { src: any; thumbnail: any; alt: string; description: any }[] =
         [
@@ -47,13 +48,15 @@
                 description: "",
             },
         ];
-
-    setBackground("#6d838e", images.coverImg);
+    
+    setBackground("#6d838e");
 </script>
 
 <svelte:head>
     <title>echo</title>
 </svelte:head>
+
+<BackgroundImage src={images.coverImg} alt="echo's coverimg. no alt text yet :(" />
 
 <div class="characterSheet">
     <h1 style="font-size: 400%; margin: -4px;">echo</h1>
