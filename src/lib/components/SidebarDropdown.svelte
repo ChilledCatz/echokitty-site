@@ -10,7 +10,7 @@
 
 <button 
     use:clickOutside
-    onoutsideclick={isOpen = false}
+    onoutsideclick={() => {isOpen = false}}
     class="dropdown" 
     onclick={() => isOpen = !isOpen}
     tabindex={0}

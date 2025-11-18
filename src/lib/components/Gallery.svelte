@@ -29,9 +29,7 @@
     .thumbnailGrid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        margin: 0 12px;
-        /* width: 100%; */
-        justify-items: center;
+        margin-right: 24px;
     }
 
     .gallery {
@@ -63,16 +61,4 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
-    /* @media only screen and (max-width: 535px) {
-        .thumbnailGrid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
-    @media only screen and (max-width: 800px) {
-        .thumbnailGrid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    } */
 </style>

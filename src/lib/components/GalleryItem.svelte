@@ -1,37 +1,55 @@
 <script lang="ts">
 	import { setGalleryState } from ".././state.svelte";
 
-	let { src, thumbnail, alt, description } = $props();
+	let { src, thumbnail, alt, description, backgroundColor = 'blue' } = $props();
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <!-- svelte-ignore a11y_click_events_have_key_events -->
-<div 
-	class="galleryImage"
-	onclick={() => {
-		setGalleryState(src, alt, description);
-	}}
->
-	<enhanced:img class="thumbnail" src={thumbnail} {alt} />
+<div class="galleryItem">
+	<div 
+		class="galleryImage"
+		onclick={() => {
+			setGalleryState(src, alt, description);
+		}}
+	>
+		<enhanced:img class="thumbnail" src={thumbnail} {alt} />
+	</div>
+	<div class="galleryShadow" style="background-color: {backgroundColor}"></div>
 </div>
 
 <style>
+	.galleryItem {
+		position: relative;
+	}
+
 	.galleryImage {
+		position: relative;
 		width: 116%;
 		height: 125px;
 		margin: 6px;
-		overflow: hidden;
 		transition: all 0.3s;
 		clip-path: polygon(22.5% 0, 100% 0, 77.5% 100%, 0 100%);
+		z-index: 1;
 	}
 
 	.thumbnail {
 		width: 100%;
 		height: 100%;
-		z-index: 10;
+		z-index: 1;
 		cursor: pointer;
 		transition: all 0.3s;
 		object-fit: cover;
+	}
+
+	.galleryShadow {
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 116%;
+		height: 125px;
+		clip-path: polygon(22.5% 0, 100% 0, 77.5% 100%, 0 100%);
+		z-index: 0
 	}
 
 	.thumbnail:hover {
