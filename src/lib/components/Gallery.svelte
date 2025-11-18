@@ -1,6 +1,7 @@
 <script lang="ts">
     import GalleryItem from "./GalleryItem.svelte";
     import { backgroundState, galleryState, setGalleryState } from "../state.svelte";
+	import { fade } from "svelte/transition";
 
     let { items } = $props()
 </script>
@@ -12,7 +13,13 @@
     {/each}
 </div>
 {#if galleryState.src}
-    <div class="gallery" role="none" onkeydown={() => {}} onclick={() => {setGalleryState(null, null, null)}}>
+    <div 
+        transition:fade={{ duration: 150 }}
+        class="gallery" 
+        role="none" 
+        onkeydown={() => { /* edit this pleeaaase */ }} 
+        onclick={() => {setGalleryState(null, null, null)}}
+    >
         <enhanced:img class="galleryFull" src={galleryState.src} alt={galleryState.alt} />
         <div class="description">{@html galleryState.description}</div>
     </div>
@@ -32,30 +39,26 @@
         height: 100vh;
         position: fixed;
         inset: 0;
-        z-index: 100;
-        transition: all 1s;
+        z-index: 99;
         background-color: rgba(0, 0, 0, 0.75);
         display: flex;
+        flex-direction: column;
+        gap: 24px;
         justify-content: center;
         align-items: center;
     }
 
     .galleryFull {
-        max-width: 85%;
+        max-width: 80vw;
         height: auto;
-        max-height: 85%;
+        max-height: 80vh;
         object-fit: contain;
     }
 
     .description {
-        position: fixed;
-        bottom: 0;
-        left: 10%;
-        right: 10%;
-        bottom: 14px;
         text-align: center;
-        background-color: blue;
-        padding: 10px;
+        background-color: #131313;
+        padding: 12px;
         border: solid 2px;
         overflow: hidden;
         text-overflow: ellipsis;
