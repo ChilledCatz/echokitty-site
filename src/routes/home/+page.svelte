@@ -18,7 +18,7 @@
 </svelte:head>
 
 <div class="homeGrid" bind:this={gridContainer}>
-    <div class="introduction">
+    <div class="section-box introduction">
         <h1>:3</h1>
         <img
             src={echoMid_bfThumbnail}
@@ -33,34 +33,53 @@
         </p>
     </div>
 
-    <div>two</div>
-    <div>three</div>
-    <div>four</div>
-    <div>five</div>
-    <div>six</div>
-    <div>seven</div>
+    <div class="section">
+        <h1>highlights</h1>
+        <div class="section-grid">
+            <div class="section-box">one</div>
+            <div class="section-box">two</div>
+            <div class="section-box">three</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>recent</h1>
+        <div class="section-grid">
+            <div class="section-box">one</div>
+            <div class="section-box">two</div>
+            <div class="section-box">three</div>
+        </div>
+    </div>
 </div>
 
 <!-- would be cool to have the introduction transition in first, and then load the other divs in one by one left to right -->
 <style>
     .homeGrid {
-        width: 100%;
-        height: 100%;
+        height: calc(100vh - (2 * var(--container-padding)));
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        grid-template-rows: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
         gap: 1rem;
     }
 
-    .homeGrid div {
+    .introduction {
+        grid-row: span 2 / span 2;
+    }
+
+    .section {
+        grid-column: span 3 / span 3;
+    }
+
+    .section-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .section-box {
         background-color: #131316;
         border: 2px solid;
         padding: 12px;
-    }
-
-    .introduction {
-        grid-column: span 3 / span 3;
-        grid-row: span 2 / span 2;
     }
 
     img {
