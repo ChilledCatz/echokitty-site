@@ -20,7 +20,7 @@
 
 <style>
     .backgroundImage {
-        position: absolute;
+        position: fixed;
         right: 0;
         top: 0;
         width: unset;

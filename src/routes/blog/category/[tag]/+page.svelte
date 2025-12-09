@@ -1,18 +1,15 @@
 <script lang="ts">
 	import Post from '$lib/components/blog/Post.svelte';
-    import { setBackground } from '$lib/state.svelte.js';
 
-    let { data } = $props();
-
-    setBackground('#839ca9')
+    let { data } = $props()
 </script>
 
 <svelte:head>
-    <title>blog</title>
+    <title>blog: {data.tag}</title>
 </svelte:head>
 
 <div class="container">
-    <h1>blog</h1>
+    <h1>blog posts tagged as {data.tag}</h1>
     {#each data.posts as post}
         <Post post={post} />
     {/each}

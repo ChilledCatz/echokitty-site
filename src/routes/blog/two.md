@@ -2,6 +2,7 @@
 title: 'hashtag mypost two'
 description: "this one doesn't get one. fuck you"
 date: '8-12-2025'
+image: 'images/fruit-smug.jpg'
 tags:
 
 - "test"
