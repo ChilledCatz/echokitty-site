@@ -1,26 +1,17 @@
 <script lang="ts">
-    interface PostInterface {
-        post: {
-            path: string,
-            metadata: {
-                title: string,
-                description: string,
-                date: string,
-                image: any,
-                tags: [],
-            }
-        }
-    }
+	import type { PostInterface } from "$lib/types/types";
 
-    let { post }: PostInterface = $props();
+    let { post }: { post: PostInterface } = $props();
 </script>
 
+<!-- @todo: add breakpoints for size so it scales better on home -->
 <article class="container">
     <div class="thumbnail-grid">
         <a class="thumbnail" href={post.path} title="link to post">
             <img class="thumbnail-image" src={post.metadata.image} alt="thumbnail image for {post.metadata.title}" />
+            <div class="thumbnail-shadow"></div>
         </a>
-        <div class="title">{post.metadata.title}</div>
+        <div class="title">{post.metadata.title} <span style="opacity: 50%; text-wrap: nowrap;">@ {post.metadata.date}</span> </div>
         {#each post.metadata.tags as tag}
             <a class="tag" href="/blog/category/{tag}">{tag}</a>
         {/each}
@@ -31,7 +22,7 @@
 <style>
     .container {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 60% 40%;
         background-color: #131313;
         border-bottom: 3px dotted white;
         text-decoration: none;
@@ -43,28 +34,50 @@
     }
 
     .thumbnail {
+        position: relative;
         float: left;
-        width: 50%;
+        width: 25vw;
         height: 12vh;
-        margin-right: unset;
-        clip-path: polygon(0 0, 77.5% 0, 100% 100%, 0 100%);
-        shape-outside: polygon(0 0, 77.5% 0, 100% 100%, 0 100%);
+        margin-right: 5%;
+        mask: linear-gradient(77.5deg, black 50%, transparent 50%);
+        mask-size: 50vw;
+        mask-position: 10%;
+        mask-repeat: no-repeat;
+        shape-outside: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+        overflow: hidden;
+    }
+
+    .thumbnail-shadow {
+        position: absolute;
+        z-index: -10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: blue;
     }
 
     .thumbnail-image {
         object-fit: cover;
+        mask: inherit;
         width: 100%;
         height: 100%;
+        transition: all 0.3s;
+    }
+
+    .thumbnail-image:hover {
+        mask-size: 185%;
+        transform: scale(1.05);
     }
 
     .title {
-        font-size: larger;
         font-weight: bolder;
         margin-bottom: 4px;
         padding-left: 45%;
     }
 
     .tag {
+        z-index: 10;
         color: white;
         text-decoration: none;
         font-size: smaller;
@@ -87,5 +100,6 @@
         font-style: italic;
         text-overflow: ellipsis;
         overflow: hidden;
+        padding-left: 2%;
     }
 </style>

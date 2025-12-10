@@ -1,15 +1,14 @@
 <script lang="ts">
     import echoMid_bfThumbnail from "$lib/assets/echo/thumbnails/echoMid_bfThumbnail.png";
+	import Post from "$lib/components/blog/Post.svelte";
     import { setBackground } from '$lib/state.svelte'
-    import { onMount } from "svelte";
+	import type { PostInterface } from "$lib/types/types.js";
+    
+    let { data } = $props();
 
-    let gridContainer: HTMLDivElement;
-    let childCount = 0;
-
-    onMount(() => {
-        childCount = gridContainer.children.length;
-    })
-
+    const higlightPosts = data.posts.filter((post: PostInterface) => post.metadata.isHighlight).slice(0, 3);
+    const recentPosts = data.posts.slice(0, 3);
+    
     setBackground('#839ca9')
 </script>
 
@@ -17,7 +16,7 @@
     <title>home</title>
 </svelte:head>
 
-<div class="homeGrid" bind:this={gridContainer}>
+<div class="homeGrid">
     <div class="section-box introduction">
         <h1>:3</h1>
         <img
@@ -36,18 +35,18 @@
     <div class="section">
         <h1>highlights</h1>
         <div class="section-grid">
-            <div class="section-box">one</div>
-            <div class="section-box">two</div>
-            <div class="section-box">three</div>
+            {#each higlightPosts as post}
+                <Post post={post}/>
+            {/each}
         </div>
     </div>
 
     <div class="section">
         <h1>recent</h1>
         <div class="section-grid">
-            <div class="section-box">one</div>
-            <div class="section-box">two</div>
-            <div class="section-box">three</div>
+            {#each recentPosts as post}
+                <Post post={post}/>
+            {/each}
         </div>
     </div>
 </div>
@@ -82,17 +81,22 @@
         padding: 12px;
     }
 
-    img {
+    .introduction img {
+        float: left;
         object-fit: cover;
         width: 150px;
         height: 225px;
-        margin: 0px 20px 0px 0px;
+        margin-right: 1em;
     }
 
     @media only screen and (max-width: 996px) {
         .homeGrid {
             grid-template-columns: repeat(3, minmax(0, 1fr));
             grid-template-rows: repeat(4, minmax(0, 1fr));
+        }
+
+        .introduction {
+            grid-column: 1 / 4;
         }
     }
 
