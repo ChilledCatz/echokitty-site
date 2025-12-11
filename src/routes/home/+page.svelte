@@ -82,11 +82,14 @@
     }
 
     .introduction img {
+        display: flex;
         float: left;
         object-fit: cover;
-        width: 150px;
-        height: 225px;
-        margin-right: 1em;
+        width: 100%;
+        max-width: 20rem;
+        height: 15rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
     }
 
     @media only screen and (max-width: 996px) {

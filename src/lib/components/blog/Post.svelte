@@ -1,7 +1,19 @@
 <script lang="ts">
 	import type { PostInterface } from "$lib/types/types";
+	import type { Attachment } from "svelte/attachments";
 
     let { post }: { post: PostInterface } = $props();
+
+    const taglistAttachment: Attachment = (element) => {
+        const tags = element.children;
+
+        // return (element) => {
+        //     const overflowingTags = [...tags].filter((tag) => 
+        //     // @ts-ignore (they do have these props and typing them so just makes ts yell at me more...)
+        //         tag.offsetTop - element.offsetTop > element.offsetHeight
+        //     );
+        // }
+    }
 </script>
 
 <!-- @todo: add breakpoints for size so it scales better on home -->
@@ -12,9 +24,11 @@
             <div class="thumbnail-shadow"></div>
         </a>
         <div class="title">{post.metadata.title} <span style="opacity: 50%; text-wrap: nowrap;">@ {post.metadata.date}</span> </div>
-        {#each post.metadata.tags as tag}
-            <a class="tag" href="/blog/category/{tag}">{tag}</a>
-        {/each}
+        <div {@attach taglistAttachment} class="tag-container">
+            {#each post.metadata.tags as tag}
+                <a class="tag" href="/blog/category/{tag}">{tag}</a>
+            {/each}
+        </div>
     </div>
     <div class="description">{post.metadata.description}</div>
 </article>
@@ -76,13 +90,17 @@
         padding-left: 45%;
     }
 
+    .tag-container {
+        overflow: hidden;
+        height: calc(1rem + 16px);
+    }
+
     .tag {
         z-index: 10;
         color: white;
         text-decoration: none;
         font-size: smaller;
         text-align: center;
-        max-width: 40%;
         margin: 4px; 
         padding: 4px 8px;  
         background-color: gray; 
