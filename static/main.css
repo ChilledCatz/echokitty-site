@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'Selectric';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Selectric'), url('%sveltekit.assets%/SLC_.woff') format('woff');
+    font-family: "Selectric";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Selectric"), url("%sveltekit.assets%/SLC_.woff") format("woff");
 }
 
 :root {
@@ -25,7 +25,7 @@ body {
 }
 
 p + p {
-    margin-top: 16px;
+    margin-top: 1rem;
 }
 
 a {
@@ -38,4 +38,10 @@ a:visited {
 
 br {
     margin: 0px 4px;
+}
+
+section.container {
+    background-color: #131313;
+    border: 2px solid white;
+    padding: 24px;
 }

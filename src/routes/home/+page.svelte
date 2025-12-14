@@ -32,23 +32,23 @@
         </p>
     </div>
 
-    <div class="section">
+    <section>
         <h1>highlights</h1>
-        <div class="section-grid">
+        <div class="post-section">
             {#each higlightPosts as post}
                 <Post post={post}/>
             {/each}
         </div>
-    </div>
+    </section>
 
-    <div class="section">
+    <section>
         <h1>recent</h1>
-        <div class="section-grid">
+        <div class="post-section">
             {#each recentPosts as post}
                 <Post post={post}/>
             {/each}
         </div>
-    </div>
+    </section>
 </div>
 
 <!-- would be cool to have the introduction transition in first, and then load the other divs in one by one left to right -->
@@ -65,13 +65,16 @@
         grid-row: span 2 / span 2;
     }
 
-    .section {
+    section {
         grid-column: span 3 / span 3;
     }
 
-    .section-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    .post-section {
+        background-color: #131313;
+        border: 2px solid white;
+        padding: 24px;
+        display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
     }
 

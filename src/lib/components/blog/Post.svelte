@@ -1,19 +1,37 @@
 <script lang="ts">
 	import type { PostInterface } from "$lib/types/types";
+    import { onDestroy, onMount } from "svelte";
 	import type { Attachment } from "svelte/attachments";
+    import { fade, fly } from "svelte/transition";
 
     let { post }: { post: PostInterface } = $props();
 
-    const taglistAttachment: Attachment = (element) => {
-        const tags = element.children;
+    let tagContainer: HTMLDivElement;
+    let overflowingTags: any[] | undefined | null = $state();
+    let resizeObserver: ResizeObserver;
+    let showExtraTags = $state(false);
 
-        // return (element) => {
-        //     const overflowingTags = [...tags].filter((tag) => 
-        //     // @ts-ignore (they do have these props and typing them so just makes ts yell at me more...)
-        //         tag.offsetTop - element.offsetTop > element.offsetHeight
-        //     );
-        // }
-    }
+    const checkOverflowingTags = () => {
+        if (!tagContainer) return;
+
+        const tags = tagContainer.children;
+
+        overflowingTags = [...tags].filter((tag) => 
+            // @ts-ignore (they do have these props and typing them so just makes ts yell at me more...)
+                (tag.offsetTop - tagContainer.offsetTop) > tagContainer.offsetHeight
+        );
+    };
+
+    onMount(() => {
+        resizeObserver = new ResizeObserver(checkOverflowingTags);
+        resizeObserver.observe(tagContainer);
+
+        checkOverflowingTags();
+    })
+
+    onDestroy(() => {
+        resizeObserver?.disconnect();
+    })
 </script>
 
 <!-- @todo: add breakpoints for size so it scales better on home -->
@@ -24,13 +42,38 @@
             <div class="thumbnail-shadow"></div>
         </a>
         <div class="title">{post.metadata.title} <span style="opacity: 50%; text-wrap: nowrap;">@ {post.metadata.date}</span> </div>
-        <div {@attach taglistAttachment} class="tag-container">
+        <div class="tag-container" bind:this={tagContainer} >
             {#each post.metadata.tags as tag}
                 <a class="tag" href="/blog/category/{tag}">{tag}</a>
             {/each}
         </div>
+        {#if overflowingTags && overflowingTags.length > 0}
+            <button 
+                class="tag show-tags" 
+                style={showExtraTags ? 'background-color: blue;' : ''}
+                onclick={() => {showExtraTags = !showExtraTags}}
+            >
+                + {overflowingTags.length}
+            </button>
+        {/if}
     </div>
-    <div class="description">{post.metadata.description}</div>
+    {#if showExtraTags}
+        <div 
+            in:fly={{ duration: 300, delay: 150, y: 25 }} 
+            out:fade={{ duration: 150 }}>
+            {#each post.metadata.tags as tag}
+                <a class="tag" href="/blog/category/{tag}">{tag}</a>
+            {/each}
+        </div>
+    {:else} 
+        <div 
+            in:fly={{ duration: 300, delay: 150, y: 25 }} 
+            out:fade={{ duration: 150 }} 
+            class="description"
+        >
+            {post.metadata.description}
+        </div>
+    {/if}
 </article>
 
 <style>
@@ -50,11 +93,11 @@
     .thumbnail {
         position: relative;
         float: left;
-        width: 25vw;
+        width: 20vw;
         height: 12vh;
         margin-right: 5%;
         mask: linear-gradient(77.5deg, black 50%, transparent 50%);
-        mask-size: 50vw;
+        mask-size: 40vw;
         mask-position: 10%;
         mask-repeat: no-repeat;
         shape-outside: polygon(0 0, 80% 0, 100% 100%, 0 100%);
@@ -87,7 +130,6 @@
     .title {
         font-weight: bolder;
         margin-bottom: 4px;
-        padding-left: 45%;
     }
 
     .tag-container {
@@ -98,6 +140,7 @@
     .tag {
         z-index: 10;
         color: white;
+        border: none;
         text-decoration: none;
         font-size: smaller;
         text-align: center;
@@ -106,10 +149,15 @@
         background-color: gray; 
         display: inline-block;
         transition: all 0.3s;
+        cursor: pointer;
     }
 
     .tag:hover{
         background-color: blue;
+    }
+
+    .show-tags {
+        position: relative;
     }
 
     .description {
@@ -119,5 +167,15 @@
         text-overflow: ellipsis;
         overflow: hidden;
         padding-left: 2%;
+    }
+
+    @media only screen and (max-width: 50rem) {
+        .container {
+            display: block;
+        }
+
+        .description {
+            display: none;
+        }
     }
 </style>
