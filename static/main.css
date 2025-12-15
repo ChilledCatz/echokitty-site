@@ -45,3 +45,16 @@ section.container {
     border: 2px solid white;
     padding: 24px;
 }
+
+@media only screen and (max-width: 40rem) {
+    :root {
+        --container-padding: 12px;
+        --sidebar-width: 100vw;
+        --sidebar-height: 52px;
+        --sidebar-padding: 4px;
+    }
+
+    section.container {
+        padding: 12px;
+    }
+}

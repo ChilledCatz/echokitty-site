@@ -24,11 +24,11 @@
         margin-left: calc(var(--sidebar-width) + (2 * var(--sidebar-padding)));
     }
 
-    @media only screen and (max-width: 535px) {
+    @media only screen and (max-width: 40rem) {
         .container {
             margin-top: 64px;
             margin-left: unset;
-            width: calc(100vw - 48px);
+            width: calc(100vw - calc(2 * var(--container-padding)));
         }
     }
 

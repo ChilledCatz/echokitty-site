@@ -37,7 +37,7 @@
         z-index: 99;
     }
 
-    @media screen and (max-width: 535px) {
+    @media screen and (max-width: 40rem) {
         .sidebar {
             position: fixed;
             width: 100vw;

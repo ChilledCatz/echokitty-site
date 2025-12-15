@@ -8,20 +8,17 @@
     <title>blog: {data.tag}</title>
 </svelte:head>
 
-<div class="container">
+<section class="container">
     <h1>blog posts tagged as {data.tag}</h1>
     {#each data.posts as post}
         <Post post={post} />
     {/each}
-</div>
+</section>
 
 <style>
     .container {
-        background-color: #131313;
-        border: 2px solid white;
-        padding: 24px;
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem
+        gap: 1rem;
     }
 </style>

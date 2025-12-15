@@ -3,35 +3,9 @@
     import { onDestroy, onMount } from "svelte";
 	import type { Attachment } from "svelte/attachments";
     import { fade, fly } from "svelte/transition";
+	import Taglist from "./Taglist.svelte";
 
-    let { post }: { post: PostInterface } = $props();
-
-    let tagContainer: HTMLDivElement;
-    let overflowingTags: any[] | undefined | null = $state();
-    let resizeObserver: ResizeObserver;
-    let showExtraTags = $state(false);
-
-    const checkOverflowingTags = () => {
-        if (!tagContainer) return;
-
-        const tags = tagContainer.children;
-
-        overflowingTags = [...tags].filter((tag) => 
-            // @ts-ignore (they do have these props and typing them so just makes ts yell at me more...)
-                (tag.offsetTop - tagContainer.offsetTop) > tagContainer.offsetHeight
-        );
-    };
-
-    onMount(() => {
-        resizeObserver = new ResizeObserver(checkOverflowingTags);
-        resizeObserver.observe(tagContainer);
-
-        checkOverflowingTags();
-    })
-
-    onDestroy(() => {
-        resizeObserver?.disconnect();
-    })
+    let { post }: { post: PostInterface } = $props()
 </script>
 
 <!-- @todo: add breakpoints for size so it scales better on home -->
@@ -42,38 +16,17 @@
             <div class="thumbnail-shadow"></div>
         </a>
         <div class="title">{post.metadata.title} <span style="opacity: 50%; text-wrap: nowrap;">@ {post.metadata.date}</span> </div>
-        <div class="tag-container" bind:this={tagContainer} >
-            {#each post.metadata.tags as tag}
-                <a class="tag" href="/blog/category/{tag}">{tag}</a>
-            {/each}
-        </div>
-        {#if overflowingTags && overflowingTags.length > 0}
-            <button 
-                class="tag show-tags" 
-                style={showExtraTags ? 'background-color: blue;' : ''}
-                onclick={() => {showExtraTags = !showExtraTags}}
-            >
-                + {overflowingTags.length}
-            </button>
-        {/if}
+
+        <Taglist tags={post.metadata.tags} />
     </div>
-    {#if showExtraTags}
-        <div 
-            in:fly={{ duration: 300, delay: 150, y: 25 }} 
-            out:fade={{ duration: 150 }}>
-            {#each post.metadata.tags as tag}
-                <a class="tag" href="/blog/category/{tag}">{tag}</a>
-            {/each}
-        </div>
-    {:else} 
-        <div 
-            in:fly={{ duration: 300, delay: 150, y: 25 }} 
-            out:fade={{ duration: 150 }} 
-            class="description"
-        >
-            {post.metadata.description}
-        </div>
-    {/if}
+
+    <div 
+        in:fly={{ duration: 300, delay: 150, y: 25 }} 
+        out:fade={{ duration: 150 }} 
+        class="description"
+    >
+        {post.metadata.description}
+    </div>
 </article>
 
 <style>
@@ -95,12 +48,11 @@
         float: left;
         width: 20vw;
         height: 12vh;
-        margin-right: 5%;
-        mask: linear-gradient(77.5deg, black 50%, transparent 50%);
+        mask: linear-gradient(-77.5deg, transparent 50%, black 50%);
         mask-size: 40vw;
         mask-position: 10%;
         mask-repeat: no-repeat;
-        shape-outside: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+        shape-outside: polygon(0 0, 100% 0, 80% 100%, 0 100%);
         overflow: hidden;
     }
 
@@ -132,34 +84,6 @@
         margin-bottom: 4px;
     }
 
-    .tag-container {
-        overflow: hidden;
-        height: calc(1rem + 16px);
-    }
-
-    .tag {
-        z-index: 10;
-        color: white;
-        border: none;
-        text-decoration: none;
-        font-size: smaller;
-        text-align: center;
-        margin: 4px; 
-        padding: 4px 8px;  
-        background-color: gray; 
-        display: inline-block;
-        transition: all 0.3s;
-        cursor: pointer;
-    }
-
-    .tag:hover{
-        background-color: blue;
-    }
-
-    .show-tags {
-        position: relative;
-    }
-
     .description {
         opacity: 75%;
         height: 100%;
@@ -172,6 +96,18 @@
     @media only screen and (max-width: 50rem) {
         .container {
             display: block;
+            height: 36vh;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 24vh;
+            mask-size: 200%;
+            mask: linear-gradient(-77.5deg, transparent 12.5%, black 12.5%, black 87.5%, transparent 87.5%);
+        }
+
+        .title {
+            padding-top: calc(24vh + 8px);
         }
 
         .description {
