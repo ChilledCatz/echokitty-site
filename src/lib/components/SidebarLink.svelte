@@ -23,7 +23,7 @@
         background-position: right bottom;
         transition: all 0.3s ease;
         border: none;
-        font-family: hack, monospace, sans-serif;
+        font-family: Selectric;
         font-size: medium;
     }
 

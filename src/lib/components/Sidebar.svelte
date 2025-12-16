@@ -39,7 +39,6 @@
 
     @media screen and (max-width: 40rem) {
         .sidebar {
-            position: fixed;
             width: 100vw;
             height: var(--sidebar-height);
             top: 0;

@@ -96,18 +96,22 @@
     @media only screen and (max-width: 50rem) {
         .container {
             display: block;
-            height: 36vh;
+            height: 16rem;
         }
 
         .thumbnail {
             width: 100%;
-            height: 24vh;
+            height: 10rem;
             mask-size: 200%;
             mask: linear-gradient(-77.5deg, transparent 12.5%, black 12.5%, black 87.5%, transparent 87.5%);
         }
 
+        .thumbnail-image:hover {
+            mask-size: 100%;
+        }
+
         .title {
-            padding-top: calc(24vh + 8px);
+            padding-top: 11rem;
         }
 
         .description {

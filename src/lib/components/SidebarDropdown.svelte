@@ -45,7 +45,7 @@
         position: relative;
         color: var(--link-color);
         border: none;
-        font-family: hack, monospace, sans-serif;
+        font-family: Selectric;
         font-size: medium;
     }
 
@@ -63,15 +63,15 @@
 
     .options {
         position: absolute;
-        top: 0px;
-        left: 120%;
+        top: 0;
+        left: calc(100% + 2vw);
         width: 64px;
         display: flex;
         flex-direction: column;
         background-color: var(--container-color);
-        border: 2px solid var(--text-color);
         gap: 0.5rem;
         padding: 10px 16px;
+        box-shadow: 4px 4px var(--pure-color);
     }
 
     .options a {
@@ -80,8 +80,9 @@
 
     @media only screen and (max-width: 40rem) {
         .options {
-            top: 120%;
+            top: calc(100% + 1vh);
             left: 0;
+            right: 0;
         }
     }
 </style>

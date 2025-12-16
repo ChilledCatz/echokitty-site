@@ -4,7 +4,7 @@
 
     let { data } = $props();
 
-    setTheme('teal')
+    setTheme('woodlands')
 </script>
 
 <svelte:head>
