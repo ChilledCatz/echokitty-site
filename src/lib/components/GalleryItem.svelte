@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setGalleryState } from ".././state.svelte";
 
-	let { src, thumbnail, alt, description, backgroundColor = 'blue' } = $props();
+	let { src, thumbnail, alt, description } = $props();
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -15,7 +15,7 @@
 	>
 		<enhanced:img class="thumbnail" src={thumbnail} {alt} />
 	</div>
-	<div class="galleryShadow" style="background-color: {backgroundColor}"></div>
+	<div class="galleryShadow"></div>
 </div>
 
 <style>
@@ -49,7 +49,8 @@
 		width: 116%;
 		height: 125px;
 		clip-path: polygon(22.5% 0, 100% 0, 77.5% 100%, 0 100%);
-		z-index: 0
+		z-index: 0;
+		background-color: var(--pure-color);
 	}
 
 	.thumbnail:hover {

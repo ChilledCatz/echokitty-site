@@ -33,8 +33,8 @@
     .container {
         display: grid;
         grid-template-columns: 60% 40%;
-        background-color: #131313;
-        border-bottom: 3px dotted white;
+        background-color: var(--container-color);
+        border-bottom: 3px dotted var(--header-color);
         text-decoration: none;
         color: unset;
         width: 100%;
@@ -63,7 +63,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: blue;
+        background-color: var(--pure-color);
     }
 
     .thumbnail-image {

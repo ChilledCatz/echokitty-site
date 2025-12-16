@@ -27,7 +27,7 @@
     }
 
     .article-header {
-        border-bottom: 3px white dotted;
+        border-bottom: 3px var(--header-color) dotted;
     }
 
     .header-image {
@@ -37,8 +37,7 @@
 
     article {
         width: 75%;
-        background-color: #131313;
-        border: 2px solid white;
+        background-color: var(--container-color);
         padding: 12px;
     }
 

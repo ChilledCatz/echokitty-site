@@ -27,7 +27,7 @@
     .sidebar {
         position: fixed;
         padding: 4px;
-        background-color: #131316;
+        background-color: var(--container-color);
         width: var(--sidebar-width);
         height: 100vh;
         display: flex;
@@ -47,7 +47,7 @@
             flex-direction: row;
             align-items: flex-start;
             z-index: 3;
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid var(--header-color);
         }
     }
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { setBackground } from "$lib/state.svelte";
+    import { setTheme } from "$lib/state.svelte";
     import Gallery from "$lib/components/Gallery.svelte";
     import * as images from "$lib/assets/echo/index";
 	import BackgroundImage from "$lib/components/BackgroundImage.svelte";
@@ -49,7 +49,7 @@
             },
         ];
     
-    setBackground("#6d838e");
+    setTheme('blue');
 </script>
 
 <svelte:head>
@@ -58,7 +58,7 @@
 
 <BackgroundImage src={images.coverImg} alt="echo's coverimg. no alt text yet :(" />
 
-<div class="characterSheet">
+<section class="container characterSheet">
     <h1 style="font-size: 400%; margin: -4px;">echo</h1>
     <i>/ echo orion | she/her | 174cm /</i>
     <hr />
@@ -76,19 +76,4 @@
     <p>if you have any questions feel free to ask!</p>
     <hr />
     <Gallery {items} />
-</div>
-
-<style>
-    .characterSheet {
-        width: 50%;
-        background-color: #131316;
-        border: 2px solid;
-        padding: 12px;
-    }
-
-    @media only screen and (max-width: 535px) {
-        .characterSheet {
-            width: calc(100vw - 72px);
-        }
-    }
-</style>
+</section>

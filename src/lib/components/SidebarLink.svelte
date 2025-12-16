@@ -17,8 +17,8 @@
         width: 64px;
         height: 64px;
         margin-left: 6px;
-        color: #0090e0;
-        background: linear-gradient(to left, rgba(0,0,0,0) 50%, blue 50%);
+        color: var(--link-color);
+        background: linear-gradient(to left, rgba(0,0,0,0) 50%, var(--pure-color) 50%);
         background-size: 200% 100%;
         background-position: right bottom;
         transition: all 0.3s ease;

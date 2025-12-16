@@ -55,7 +55,7 @@
 
     .description {
         text-align: center;
-        background-color: #131313;
+        background-color: var(--container-color);
         padding: 12px;
         border: solid 2px;
         overflow: hidden;

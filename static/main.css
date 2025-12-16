@@ -1,8 +1,8 @@
 @font-face {
-    font-family: "Selectric";
-    font-style: normal;
-    font-weight: normal;
-    src: local("Selectric"), url("%sveltekit.assets%/SLC_.woff") format("woff");
+    font-family: 'Selectric';
+    src: 
+        url('/fonts/Selectric.ttf') format('truetype'),
+        url('/fonts/SLC_.woff') format('woff');
 }
 
 :root {
@@ -10,18 +10,30 @@
     --sidebar-width: 80px;
     --sidebar-height: 52px;
     --sidebar-padding: 4px;
+
+    --background-color: #101410;
+    --container-color: #252924;
+    --header-color: #9ed49d;
+    --text-color: white;
+    --link-color: #9ed49d;
+    --pure-color: #1f4d53;
 }
 
 body {
-    background-color: #839ca9;
+    background-color: var(--background-color);
     margin: 0;
     height: 100vh;
     overflow: auto;
-    color: white;
-    /* font-family: Selectric; */
-    font-family: hack, monospace, sans-serif;
+    color: var(--text-color);
+    font-family: Selectric;
     font-size: medium;
+    font-weight: 500;
     transition: all 1s;
+}
+
+h1 {
+    color: var(--header-color);
+    font-weight: 800;
 }
 
 p + p {
@@ -29,11 +41,11 @@ p + p {
 }
 
 a {
-    color: #0090e0;
+    color: var(--link-color);
 }
 
 a:visited {
-    color: #0090e0;
+    color: var(--link-color);
 }
 
 br {
@@ -41,8 +53,7 @@ br {
 }
 
 section.container {
-    background-color: #131313;
-    border: 2px solid white;
+    background-color: var(--container-color);
     padding: 24px;
 }
 
@@ -56,5 +67,9 @@ section.container {
 
     section.container {
         padding: 12px;
+    }
+
+    section.characterSheet {
+        width: calc(100% - (2 * var(--container-padding)));
     }
 }

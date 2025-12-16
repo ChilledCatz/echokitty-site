@@ -58,14 +58,14 @@
     .tag {
         --tag-width: calc(100% - 8px);
         z-index: 10;
-        color: white;
+        color: var(--text-color);
         border: none;
         text-decoration: none;
         font-size: 0.75rem;
         text-align: center;
         margin: 4px 0px; 
         padding: 4px 16px;  
-        background-color: gray; 
+        background-color: var(--pure-color); 
         display: inline-block;
         transition: all 0.3s;
         cursor: pointer;
@@ -73,6 +73,7 @@
     }
 
     .tag:hover{
-        background-color: blue;
+        background-color: var(--header-color);
+        color: white;
     }
 </style>

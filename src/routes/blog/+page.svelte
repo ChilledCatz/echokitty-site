@@ -1,10 +1,10 @@
 <script lang="ts">
 	import Post from '$lib/components/blog/Post.svelte';
-    import { setBackground } from '$lib/state.svelte.js';
+    import { setTheme } from '$lib/state.svelte.js';
 
     let { data } = $props();
 
-    setBackground('#839ca9')
+    setTheme('teal')
 </script>
 
 <svelte:head>
