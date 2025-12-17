@@ -1,7 +1,8 @@
+import { fetchPosts } from '$lib/api/index.js';
+
 export const load = async ({ fetch, params }) => {
     const { tag } = params;
-    const response = await fetch(`/api/posts`);
-    const allPosts = await response.json();
+    const allPosts = await fetchPosts();
 
     const posts = allPosts.filter((post) => post.metadata.tags.includes(tag));
 

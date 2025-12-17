@@ -1,10 +1,8 @@
 <script lang="ts">
 	import Taglist from '$lib/components/blog/Taglist.svelte';
 
-    export let data;
+    let { data } = $props();
     const { title, image, date, tags, Content } = data;
-
-    console.log(image)
 </script>
 
 <div class="article-wrapper">

@@ -41,6 +41,7 @@
         height: 12vh;
         overflow: hidden;
         padding-bottom: 15px;
+        margin-bottom: 15px;
     }
 
     .thumbnail {
@@ -97,6 +98,7 @@
         .container {
             display: block;
             height: 16rem;
+            margin-bottom: 10px;
         }
 
         .thumbnail {
