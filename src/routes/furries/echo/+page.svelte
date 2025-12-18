@@ -44,8 +44,8 @@
             {
                 src: images.cry,
                 thumbnail: images.cryThumbnail,
-                alt: "",
-                description: "",
+                alt: "echo, looking at the camera with her paw held up towards her chin. her starry eyes seem to leak out and fall up like rain",
+                description: "<span>done by: <a href=https://linktr.ee/swollenbabyfat target=_blank>swollenbabyfat</a></span>",
             },
         ];
     
@@ -56,16 +56,17 @@
     <title>echo</title>
 </svelte:head>
 
-<BackgroundImage src={images.coverImg} alt="echo's coverimg. no alt text yet :(" />
+<BackgroundImage src={images.coverImg} alt="pixel art of echo standing in a field of tall grass against a starry night sky. the north star seems to shine down over part of her snout" />
 
 <section class="container characterSheet">
     <h1>echo</h1>
     <i>/ echo orion | she/her | 174cm /</i>
     <hr />
     <p>
-        echo is my fursona! she's a nebelung cat with nebulae for eyes, which
-        change depending on her mood. she loves ambient music, her guitar and
-        tranquil moments with a cup of tea or coffee.
+        echo is my fursona! she's a quiet nebelung cat with nebulae for eyes, 
+        which change depending on her mood. she loves ambient music, her guitar 
+        and tranquil moments with a cup of tea or coffee. although, if she has the
+        energy for it, she's willing to be more outgoing ^^
     </p>
     <p>
         though i provide reference images on this page, feel free to have your
@@ -73,7 +74,6 @@
         character, as long as she's still recognizable and still a trans woman
         :3
     </p>
-    <p>if you have any questions feel free to ask!</p>
     <hr />
     <Gallery {items} />
 </section>

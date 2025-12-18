@@ -3,9 +3,9 @@
 	import SidebarLink from "./SidebarLink.svelte";
 
     const links = [
-        { href: "/home", title: "home" },
-        { href: "/blog", title: "blog" },
-        { href: "/furries", title: "furries", children: [
+        { href: "/home", title: "home", icon: '/images/svg/home.svg' },
+        { href: "/blog", title: "blog", icon: '/images/svg/article.svg' },
+        { href: "/furries", title: "furries", icon: '/images/svg/paw.svg', children: [
             { href: "/furries/echo", title: "echo" },
             { href: "/furries/glade", title: "glade" }
         ] }
@@ -16,9 +16,9 @@
 <nav class="sidebar">
     {#each links as link}
         {#if link.children}
-            <SidebarDropdown children={link.children} title={link.title} />
+            <SidebarDropdown children={link.children} title={link.title} icon={link.icon} />
         {:else}
-            <SidebarLink url={link.href} title={link.title} />
+            <SidebarLink url={link.href} title={link.title} icon={link.icon} />
         {/if}
     {/each}
 </nav>

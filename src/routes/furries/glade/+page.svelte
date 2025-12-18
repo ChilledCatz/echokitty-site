@@ -41,11 +41,12 @@
     <i>/ glade | it/she | 215cm /</i>
     <hr>
     <p>
-      glade's a friend of echo. it's more outgoing than her and likes to tease echo for being a bit too much of a shut-in at times.
-      it likes playing bass and baking, somehow knows too much about thrifting clothes and has a bit of a sweet tooth.
+      glade's a friend of echo. it's more loud and out there than her and likes to tease her for being a bit too much of a shut-in at times.
+      it likes playing bass and baking, somehow knows too much about thrifting clothes and should not be trusted with treats or snacks :3
     </p>
     <p>
-      i got glade as an adopt from <span><a href="https://pinxsite.carrd.co/" target="_blank">necapinx</a></span>! so far this is all of the art i have to show for her... i'd love to get some more commissioned though ^^  
+      i got glade as an adopt from <span><a href="https://pinxsite.carrd.co/" target="_blank">necapinx</a></span>! 
+      so far this is all of the art i have to show for her... i'd love to get some more commissioned though ^^  
     </p>
     <Gallery items={items} />
 </section>
