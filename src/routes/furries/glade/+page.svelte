@@ -36,7 +36,7 @@
     <title>glade</title>
 </svelte:head>
 
-<section class="container" style="width: 50%;">
+<section class="container characterSheet">
     <h1 class="big" style="margin-bottom: -0.25rem;">glade</h1>
     <i>/ glade | it/she | 215cm /</i>
     <hr>

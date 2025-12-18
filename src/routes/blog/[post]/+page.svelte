@@ -43,5 +43,10 @@
         article {
             width: 100%;
         }
+
+        .header-image {
+            max-width: 100%;
+            height: auto;
+        }
     }
 </style>
