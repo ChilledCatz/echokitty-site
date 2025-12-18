@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 
-    let { url, title } = $props();
+    let { url, title, icon } = $props();
 </script>
 
 <button class="link" onclick={() => goto(url)}>
-    <div>
+    <div class="link-content">
+        <img src={icon} alt="icon for {title}">
         {title}
     </div>
 </button>
@@ -31,5 +32,12 @@
         background-position: left bottom;
         color: white;
         cursor: pointer;
+    }
+
+    .link-content {
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        align-items: center;
     }
 </style>

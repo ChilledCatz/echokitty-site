@@ -1,11 +1,25 @@
 <script lang="ts">
     import { slide } from "svelte/transition";
     import {clickOutside} from './events/clickOutside';
+    import { onMount } from "svelte";
 
-    let {children, title} = $props();
+    let {children, title, icon} = $props();
     let isOpen = $state(false);
+    let isMobileView = $state(false);
 
-    const isMobileView = false;
+    const remToPix = (rem: number) => { 
+        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize) 
+    }
+ 
+    onMount(() => {
+        const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth);
+
+        console.log(viewportWidth, remToPix(40))
+
+        if (viewportWidth < remToPix(40)) {
+            isMobileView = true;
+        }
+    })
 </script>
 
 <button 
@@ -16,6 +30,7 @@
     tabindex={0}
 >
     <div class="dropdownText">
+        <img src={icon} alt="icon for {title}">
         {title}
     </div>
     
@@ -56,6 +71,13 @@
         cursor: pointer;
     }
 
+    .dropdownText {
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        align-items: center;
+    }
+
     .dropdownText:hover {
         background-position: left bottom;
         color: var(--text-color);
@@ -64,8 +86,8 @@
     .options {
         position: absolute;
         top: 0;
-        left: calc(100% + 2vw);
-        width: 64px;
+        left: calc(var(--sidebar-width) + 0.5rem);
+        width: 4rem;
         display: flex;
         flex-direction: column;
         background-color: var(--container-color);
@@ -80,7 +102,7 @@
 
     @media only screen and (max-width: 40rem) {
         .options {
-            top: calc(100% + 1vh);
+            top: calc(var(--sidebar-height) + 0.5rem);
             left: 0;
             right: 0;
         }

@@ -12,9 +12,9 @@
 </svelte:head>
 
 <section class="container">
-    <h1>blog</h1>
+    <h1 class="big">blog</h1>
     <p>now available as an <a href="/rss.xml">rss feed</a>!</p>
-    <section>
+    <section style="width: 100%;">
         {#each data.posts as post}
             <Post post={post} />
         {/each}

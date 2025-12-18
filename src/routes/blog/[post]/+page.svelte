@@ -8,7 +8,7 @@
 <div class="article-wrapper">
     <article>
         <div class="article-header">
-            <h2>{title}</h2>
+            <h1>{title}</h1>
             <img class="header-image" src={image} alt="cool awesome sick sweet" />
             <p style="font-style: italic; opacity: 50%;">published @ {date}</p>
             <Taglist tags={tags} multiline />
@@ -29,8 +29,8 @@
     }
 
     .header-image {
-        width: 100%;
-        height: auto;
+        max-height: 512px;
+        object-fit: contain;
     }
 
     article {

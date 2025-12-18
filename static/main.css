@@ -7,8 +7,8 @@
 
 :root {
     --container-padding: 24px;
-    --sidebar-width: 80px;
-    --sidebar-height: 80px;
+    --sidebar-width: 5rem;
+    --sidebar-height: 5rem;
     --sidebar-padding: 4px;
 
     --background-color: #101410;
@@ -34,6 +34,12 @@ body {
 h1 {
     color: var(--header-color);
     font-weight: 800;
+}
+
+h1.big {
+    font-size: 400%; 
+    margin: -0.25rem; 
+    margin-bottom: 1rem;
 }
 
 p + p {
