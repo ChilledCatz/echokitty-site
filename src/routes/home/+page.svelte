@@ -46,7 +46,7 @@
     </section>
 
     <div class="highlights">
-        <h1>highlights</h1>
+        <h1 style="font-size: 200%; margin: 1rem;">highlights</h1>
         <section class="container post-section">
             {#each higlightPosts as post}
                 <Post post={post}/>
@@ -55,7 +55,7 @@
     </div>
 
     <div>
-        <h1>recent</h1>
+        <h1 style="font-size: 200%; margin: 1rem;">recent</h1>
         <section class="container post-section">
             {#each recentPosts as post}
                 <Post post={post}/>

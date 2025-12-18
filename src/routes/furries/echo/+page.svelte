@@ -59,7 +59,7 @@
 <BackgroundImage src={images.coverImg} alt="echo's coverimg. no alt text yet :(" />
 
 <section class="container characterSheet">
-    <h1 style="font-size: 400%; margin: -4px;">echo</h1>
+    <h1>echo</h1>
     <i>/ echo orion | she/her | 174cm /</i>
     <hr />
     <p>

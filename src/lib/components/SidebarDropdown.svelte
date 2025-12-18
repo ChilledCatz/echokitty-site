@@ -64,7 +64,7 @@
     .options {
         position: absolute;
         top: 0;
-        left: calc(100% + 2vw);
+        left: calc(100% + 1vw);
         width: 64px;
         display: flex;
         flex-direction: column;

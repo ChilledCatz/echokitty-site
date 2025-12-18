@@ -40,6 +40,7 @@
 		cursor: pointer;
 		transition: all 0.3s;
 		object-fit: cover;
+		object-position: 50% 20%;
 	}
 
 	.galleryShadow {
