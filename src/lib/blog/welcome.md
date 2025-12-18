@@ -3,6 +3,7 @@ title: 'my first blog post!'
 description: "welcome :3"
 date: '18-12-2025'
 image: '/images/goingswimingly.png'
+alt: "a picture of a fish with the head of a tabby cat. the text above reads: 'it's going swimingly'"
 tags: 
 
 - "thoughts"

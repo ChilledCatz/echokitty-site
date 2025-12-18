@@ -14,8 +14,6 @@
     onMount(() => {
         const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth);
 
-        console.log(viewportWidth, remToPix(40))
-
         if (viewportWidth < remToPix(40)) {
             isMobileView = true;
         }

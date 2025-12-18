@@ -1,6 +1,7 @@
 export const prerender = true;
 
 import { fetchPosts } from '$lib/api/index.js';
+import moment from 'moment';
 
 export const GET = async ({ fetch, url }) => {
     const posts = fetchPosts();
@@ -26,7 +27,7 @@ export const GET = async ({ fetch, url }) => {
                 <title>${escapeXml("kat's blog")}</title>
                 <author>${escapeXml('kat')}</author>
                 <description>${escapeXml("i write about stuff i care about")}</description>
-                <updated>${new Date().toISOString()}</updated>
+                <updated>${moment().toISOString()}</updated>
                 ${posts.map((post) => `
                     <item>
                         <guid>${'https://oestrogeen.gratis' + post.path}</guid>
@@ -36,7 +37,7 @@ export const GET = async ({ fetch, url }) => {
                             <url>${'https://oestrogeen.gratis' + post.metadata.image}</url>
                         </image>
                         <description>${escapeXml(post.metadata.description)}</description>
-                        <pubDate>${new Date(post.metadata.date).toLocaleDateString("en-GB")}</pubDate>
+                        <pubDate>${moment(post.metadata.date, 'DD-MM-YYYY').toISOString()}</pubDate>
                     </item>
                 `).join('\n')}
             </channel>

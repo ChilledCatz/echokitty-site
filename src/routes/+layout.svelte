@@ -22,6 +22,7 @@
         transition: all 0.3s;
         width: calc(100vw - var(--sidebar-width) - (2 * var(--sidebar-padding)) - (2 * var(--container-padding)));
         margin-left: calc(var(--sidebar-width) + (2 * var(--sidebar-padding)));
+        overflow-x: visible;
     }
 
     @media only screen and (max-width: 40rem) {
