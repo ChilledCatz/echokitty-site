@@ -36,7 +36,7 @@ export const GET = async ({ fetch, url }) => {
                             <url>${url.origin + post.metadata.image}</url>
                         </image>
                         <description>${escapeXml(post.metadata.description)}</description>
-                        <pubDate>${new Date(post.metadata.date).toISOString()}</pubDate>
+                        <pubDate>${new Date(post.metadata.date).toLocaleDateString("en-GB")}</pubDate>
                     </item>
                 `).join('\n')}
             </channel>
