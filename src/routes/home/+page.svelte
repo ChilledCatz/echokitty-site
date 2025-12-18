@@ -18,7 +18,7 @@
 
 <div class="home">
     <section class="container introduction left-introduction">
-        <h1>:3</h1>
+        <h1 class="big">:3</h1>
         <img
             src={echoMid_bfThumbnail}
             alt="my fursona, echo. she's a gay nebelung cat with nebuale for eyes"
@@ -30,7 +30,7 @@
     </section>
 
     <section class="container introduction right-introduction">
-        <h1>about me</h1>
+        <h1 class="big">about me</h1>
         <p>
             i'm kat / chilledcatz / catz! if the site url wasn't clear enough, i'm tramsgener (she/her) :3
         </p>
@@ -55,8 +55,8 @@
         </div>
     </section>
 
-    <div class="highlights">
-        <h1 style="font-size: 200%; margin: 1rem;">highlights</h1>
+    <div style="width: 100%;">
+        <h1>highlights</h1>
         <section class="container post-section">
             {#each higlightPosts as post}
                 <Post post={post}/>
@@ -64,8 +64,8 @@
         </section>
     </div>
 
-    <div>
-        <h1 style="font-size: 200%; margin: 1rem;">recent</h1>
+    <div style="width: 100%;">
+        <h1>recent</h1>
         <section class="container post-section">
             {#each recentPosts as post}
                 <Post post={post}/>

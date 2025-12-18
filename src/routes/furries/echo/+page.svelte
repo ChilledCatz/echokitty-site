@@ -59,7 +59,7 @@
 <BackgroundImage src={images.coverImg} alt="pixel art of echo standing in a field of tall grass against a starry night sky. the north star seems to shine down over part of her snout" />
 
 <section class="container characterSheet">
-    <h1>echo</h1>
+    <h1 class="big" style="margin-bottom: -0.25rem;">echo</h1>
     <i>/ echo orion | she/her | 174cm /</i>
     <hr />
     <p>

@@ -37,7 +37,7 @@
 </svelte:head>
 
 <section class="container" style="width: 50%;">
-    <h1>glade</h1>
+    <h1 class="big" style="margin-bottom: -0.25rem;">glade</h1>
     <i>/ glade | it/she | 215cm /</i>
     <hr>
     <p>

@@ -8,7 +8,6 @@
     let { post }: { post: PostInterface } = $props()
 </script>
 
-<!-- @todo: add breakpoints for size so it scales better on home -->
 <article class="container">
     <div class="thumbnail-grid">
         <a class="thumbnail" href={post.path} title="link to post">
