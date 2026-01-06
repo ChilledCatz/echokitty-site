@@ -2,6 +2,7 @@
     import { slide } from "svelte/transition";
     import {clickOutside} from './events/clickOutside';
     import { onMount } from "svelte";
+	import { prefersReducedMotion } from "svelte/motion";
 
     let {children, title, icon} = $props();
     let isOpen = $state(false);
@@ -33,7 +34,7 @@
     </div>
     
     {#if isOpen}
-    <div transition:slide={{ axis: isMobileView ? 'y' : 'x' }} class="options">
+    <div transition:slide={{ duration: prefersReducedMotion.current ? 0 : 150, axis: isMobileView ? 'y' : 'x' }} class="options">
         {#each children as child}
             <a href={child.href}>
                 {child.title}

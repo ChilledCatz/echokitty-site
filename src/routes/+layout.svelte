@@ -1,6 +1,7 @@
 <script lang="ts">
     import Sidebar from "$lib/components/Sidebar.svelte";
     import { fade, fly } from "svelte/transition";
+    import { prefersReducedMotion } from "svelte/motion";
     import type { LayoutProps } from "./$types";
 
     let { children, data }: LayoutProps = $props();
@@ -10,7 +11,10 @@
 
 <!-- @todo: add reduced motion -->
 {#key data.currentRoute}
-    <div class="container" in:fly={{ duration: 300, delay: 150, y: 25 }} out:fade={{ duration: 150 }} >
+    <div 
+        class="container" 
+        in:fly={{ duration: prefersReducedMotion.current ? 0 : 300, delay: 150, y: 25 }} 
+        out:fade={{ duration: prefersReducedMotion.current ? 0 : 150 }} >
         {@render children()}
     </div>
 {/key}

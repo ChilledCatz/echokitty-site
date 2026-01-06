@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { PostInterface } from "$lib/types/types";
-    import { onDestroy, onMount } from "svelte";
-	import type { Attachment } from "svelte/attachments";
+    import { prefersReducedMotion } from "svelte/motion";
     import { fade, fly } from "svelte/transition";
 	import Taglist from "./Taglist.svelte";
 
@@ -20,7 +19,7 @@
     </div>
 
     <div 
-        in:fly={{ duration: 300, delay: 150, y: 25 }} 
+        in:fly={{ duration: prefersReducedMotion.current ? 0 : 300, delay: 150, y: 25 }} 
         out:fade={{ duration: 150 }} 
         class="description"
     >
