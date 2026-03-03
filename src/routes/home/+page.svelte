@@ -1,6 +1,7 @@
 <script lang="ts">
     import echoMid_bfThumbnail from "$lib/assets/echo/thumbnails/echoMid_bfThumbnail.png";
 	import Post from "$lib/components/blog/Post.svelte";
+	import TypedTitle from "$lib/components/home/TypedTitle.svelte";
     import { setTheme } from '$lib/state.svelte'
 	import type { PostInterface } from "$lib/types/types.js";
     
@@ -18,7 +19,7 @@
 
 <div class="home">
     <section class="container introduction left-introduction">
-        <h1 class="big">:3</h1>
+        <TypedTitle />
         <img
             src={echoMid_bfThumbnail}
             alt="my fursona, echo. she's a gay nebelung cat with nebuale for eyes"
