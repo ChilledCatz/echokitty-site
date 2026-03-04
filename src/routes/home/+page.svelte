@@ -19,7 +19,7 @@
 
 <div class="home">
     <section class="container introduction left-introduction">
-        <TypedTitle />
+        <TypedTitle texts={[":3", "^w^", ":3c", "hey!", "awawa", "mrrp"]} />
         <img
             src={echoMid_bfThumbnail}
             alt="my fursona, echo. she's a gay nebelung cat with nebuale for eyes"
