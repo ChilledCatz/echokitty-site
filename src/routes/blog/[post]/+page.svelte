@@ -8,10 +8,12 @@
 <div class="article-wrapper">
     <article>
         <div class="article-header">
-            <h1>{title}</h1>
             <img class="header-image" src={image} alt={alt} />
-            <p style="font-style: italic; opacity: 50%;">published @ {date}</p>
-            <Taglist tags={tags} multiline />
+            <div style="display:flex; align-items: center;">
+                <h1>{title}</h1>
+                <Taglist tags={tags} multiline />
+            </div>
+            <p style="margin-top: 0px;"><span style="opacity: 50%;">published on:</span> {date}</p>
         </div>
 
         <div class="content">
@@ -39,6 +41,7 @@
 
     .content {
         padding: 0 1rem;
+        line-height: 150%;
     }
 
     article {
