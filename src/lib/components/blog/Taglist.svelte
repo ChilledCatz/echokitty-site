@@ -52,7 +52,7 @@
 
 <style>
     .tag-container {
-        margin-bottom: 8px;
+        margin: 8px 0px;
     }
 
     .tag {

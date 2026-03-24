@@ -25,6 +25,7 @@
 		"vite": "6.3"
 	},
 	"dependencies": {
-		"@sveltejs/enhanced-img": "^0.8.4"
+		"@sveltejs/enhanced-img": "^0.8.4",
+		"remark-footnotes": "^2.0.0"
 	}
 }
