@@ -2,8 +2,19 @@
 	import Taglist from '$lib/components/blog/Taglist.svelte';
 
     let { data } = $props();
-    const { title, image, alt, date, tags, Content } = data;
+    const { title, description, image, alt, date, tags, Content } = data;
 </script>
+
+<svelte:head>
+    <title>{ title }</title>
+    <meta property="og:title" content={ title }>
+    <meta property="og:description" content={ description }>
+    <meta property="og:image" content={ image }>
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="484">
+    <meta property="og:type" content="article">
+    <meta property="og:article:published_time" content={ date }>
+</svelte:head>
 
 <div class="article-wrapper">
     <article>
@@ -45,7 +56,7 @@
     }
 
     article {
-        width: 75%;
+        width: 50rem;
         background-color: var(--container-color);
         padding: 1rem;
     }
