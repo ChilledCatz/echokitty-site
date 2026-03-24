@@ -37,8 +37,8 @@
     <div transition:slide={{ axis: isMobileView ? 'y' : 'x' }} class="options">
         {#each children as child}
             <Link href={child.href} style="display: flex; justify-content: center;">
-                <span class="clickHelper"></span>
                 {child.title}
+                <span class="clickHelper"></span>
             </Link>
         {/each}
     </div>
@@ -99,6 +99,10 @@
         position: absolute;
         inset: 0;
         z-index: 1;
+        width: 200%;
+        height: 150%;
+        transform: translate(-25%, -12.5%);
+        pointer-events: auto;
     }
 
     @media only screen and (max-width: 40rem) {

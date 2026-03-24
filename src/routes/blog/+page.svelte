@@ -25,7 +25,7 @@
 <style>
     .container {
         display: flex;
-        width: 100%;
+        width: calc(100% - (2 * var(--container-padding)) - 0.5rem);
         max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
