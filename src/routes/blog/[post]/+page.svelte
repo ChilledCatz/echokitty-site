@@ -1,8 +1,11 @@
 <script lang="ts">
 	import Taglist from '$lib/components/blog/Taglist.svelte';
+    import { setTheme } from '$lib/state.svelte.js';
 
     let { data } = $props();
     const { title, description, image, alt, date, tags, Content } = data;
+
+    setTheme('woodlands');
 </script>
 
 <svelte:head>

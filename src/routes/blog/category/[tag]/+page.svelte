@@ -1,7 +1,10 @@
 <script lang="ts">
 	import Post from '$lib/components/blog/Post.svelte';
+    import { setTheme } from '$lib/state.svelte.js';
 
     let { data } = $props()
+
+    setTheme('woodlands');
 </script>
 
 <svelte:head>
