@@ -10,7 +10,7 @@
 <style>
     a {
         position: relative;
-        color: var(--background-color);
+        color: rgba(0, 0, 0, 0.8);
         text-decoration-color: var(--link-color);
     }
 
