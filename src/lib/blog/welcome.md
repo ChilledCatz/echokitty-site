@@ -9,7 +9,7 @@ tags:
 - "thoughts"
 - "first-post"
 
-isHighlight: true
+isHighlight: false
 ---
 
 # hello world!
