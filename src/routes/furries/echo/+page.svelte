@@ -10,42 +10,56 @@
                 src: images.refSheet,
                 thumbnail: images.refSheetThumbnail,
                 alt: "a ref sheet of echo, a gray cat with a dark mullet and nebulae for eyes.",
-                description:
-                    '<span>the most recent ref sheet, i still have to update its text ^^" | done by: <a href=https://linktr.ee/mid_bf target=_blank>mid_bf</a></span>',
+                description: {
+                    text: 'the most recent ref sheet, i still have to update its text ^^"',
+                    artist: 'mid_bf',
+                    href: 'https://linktr.ee/mid_bf'
+                }
             },
             {
                 src: images.room,
                 thumbnail: images.roomThumbnail,
                 alt: "an commission of echo in a cluttered room, holding a jazzmaster guitar.",
-                description:
-                    "<span>done by: <a href=https://www.instagram.com/tiny.canon/ target=_blank>tiny.canon</a></span>",
+                description: {
+                    artist: 'tiny.canon',
+                    href: 'https://www.instagram.com/tiny.canon/'
+                }
             },
             {
                 src: images.tea,
                 thumbnail: images.teaThumbnail,
                 alt: "black and white art of echo. she's sitting with her legs crossed on a pillow, looking at the viewer with a cup of tea in her paws.",
-                description:
-                    "<span>done by: <a href=https://twitter.com/twistcmyk target=_blank>twistcmyk</a> / <a href=https://bsky.app/profile/twist.dog>twist.dog</a></span>",
+                description: {
+                    artist: 'twistcmyk',
+                    href: 'https://bsky.app/profile/twist.dog/'
+                }
             },
             {
                 src: images.eye,
                 thumbnail: images.eyeThumbnail,
                 alt: "a closeup of echo's eye, showing a starry nebula in place of a normal eye.",
-                description:
-                    "<span>done by: <a href=https://hr-bananabird.carrd.co/ target=_blank>hr_bananabird</a></span>",
+                description: {
+                    artist: 'hr_bananabird',
+                    href: 'https://hr-bananabird.carrd.co/'
+                }
             },
             {
                 src: images.magazine,
                 thumbnail: images.magazineThumbnail,
                 alt: "art of echo, styled like a magazine. she's posing for the photo with her guitar on her lap, holding it diagonally at the neck and body respectively.",
-                description:
-                    "<span>done by: <a href=https://pinxsite.carrd.co/ target=_blank>necapinx</a></span>",
+                description: {
+                    artist: 'necapinx',
+                    href: 'https://pinxsite.carrd.co/'
+                }
             },
             {
                 src: images.cry,
                 thumbnail: images.cryThumbnail,
                 alt: "echo, looking at the camera with her paw held up towards her chin. her starry eyes seem to leak out and fall up like rain",
-                description: "<span>done by: <a href=https://linktr.ee/swollenbabyfat target=_blank>swollenbabyfat</a></span>",
+                description: {
+                    artist: 'swollenbabyfat',
+                    href: 'https://linktr.ee/swollenbabyfat'
+                }
             },
         ];
     

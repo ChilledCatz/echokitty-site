@@ -30,14 +30,12 @@ export const GET = async ({ fetch, url }) => {
                 <updated>${moment().toISOString()}</updated>
                 ${posts.map((post) => `
                     <item>
+                        <title>${escapeXml(post.metadata.title)}</title>
+                        <description>${escapeXml(post.metadata.description)}</description>
+                        <enclosure url="${'https://oestrogeen.gratis' + post.metadata.image}" alt="${post.metadata.alt}" length="0" type="image/jpeg" />
+                        <pubDate>${moment(post.metadata.date, 'DD-MM-YYYY').toISOString()}</pubDate>
                         <guid>${'https://oestrogeen.gratis' + post.path}</guid>
                         <link>${'https://oestrogeen.gratis' + post.path}</link>
-                        <title>${escapeXml(post.metadata.title)}</title>
-                        <image>
-                            <url>${'https://oestrogeen.gratis' + post.metadata.image}</url>
-                        </image>
-                        <description>${escapeXml(post.metadata.description)}</description>
-                        <pubDate>${moment(post.metadata.date, 'DD-MM-YYYY').toISOString()}</pubDate>
                     </item>
                 `).join('\n')}
             </channel>

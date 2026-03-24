@@ -2,6 +2,7 @@
     import GalleryItem from "./GalleryItem.svelte";
     import { backgroundState, galleryState, setGalleryState } from "../state.svelte";
 	import { fade } from "svelte/transition";
+	import Link from "./Link.svelte";
 
     let { items } = $props()
 </script>
@@ -12,7 +13,7 @@
         <GalleryItem src={item.src} thumbnail={item.thumbnail} alt={item.alt} description={item.description} />
     {/each}
 </div>
-{#if galleryState.src}
+{#if galleryState.src && galleryState.description}
     <div 
         transition:fade={{ duration: 150 }}
         class="gallery" 
@@ -21,7 +22,9 @@
         onclick={() => {setGalleryState(null, null, null)}}
     >
         <enhanced:img class="galleryFull" src={galleryState.src} alt={galleryState.alt} />
-        <div class="description">{@html galleryState.description}</div>
+        <div class="description">
+            { galleryState.description.text && `${galleryState.description.text} |` } done by: <Link href={galleryState.description.href} target="_blank">{galleryState.description.artist}</Link>
+        </div>
     </div>
 {/if}
 

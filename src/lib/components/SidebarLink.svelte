@@ -17,7 +17,7 @@
         place-content: center;
         width: 64px;
         height: 64px;
-        margin-left: 6px;
+        margin-left: calc(var(--sidebar-padding) * 0.75);
         color: var(--link-color);
         background: linear-gradient(to left, rgba(0,0,0,0) 50%, var(--pure-color) 50%);
         background-size: 200% 100%;

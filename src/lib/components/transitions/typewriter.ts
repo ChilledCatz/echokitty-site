@@ -3,7 +3,12 @@ import type { TransitionConfig } from "svelte/transition";
 export default function typewriter(node: HTMLElement, { speed = 1 }): TransitionConfig {
 	const text = node.textContent;
 
-    if (!text) throw new Error("doesn't work on non text nodes pal");
+    if (!text) return {
+		duration: 1,
+		tick: (t) => {
+			node.textContent = ""
+		} 
+	};
     
 	const duration = text.length / (speed * 0.01);
 
