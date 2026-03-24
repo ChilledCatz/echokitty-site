@@ -2,6 +2,7 @@
     import { slide } from "svelte/transition";
     import {clickOutside} from './events/clickOutside';
     import { onMount } from "svelte";
+	import Link from "./Link.svelte";
 
     let {children, title, icon} = $props();
     let isOpen = $state(false);
@@ -35,9 +36,10 @@
     {#if isOpen}
     <div transition:slide={{ axis: isMobileView ? 'y' : 'x' }} class="options">
         {#each children as child}
-            <a href={child.href}>
+            <Link href={child.href} style="display: flex; justify-content: center;">
+                <span class="clickHelper"></span>
                 {child.title}
-            </a>
+            </Link>
         {/each}
     </div>
     {/if}
@@ -49,7 +51,7 @@
         place-content: center;
         width: 64px;
         height: 64px;
-        margin-left: 6px;
+        margin-left: calc(var(--sidebar-padding) * 0.75);
         text-decoration-line: none;
         background: linear-gradient(to top, rgba(0,0,0,0) 50%, var(--pure-color) 50%);
         background-size: 100% 200%;
@@ -85,17 +87,18 @@
         position: absolute;
         top: 0;
         left: calc(var(--sidebar-width) + 0.5rem);
-        width: 4rem;
         display: flex;
         flex-direction: column;
         background-color: var(--container-color);
-        gap: 0.5rem;
-        padding: 10px 16px;
+        gap: 1rem;
+        padding: 1rem 2rem;
         box-shadow: 4px 4px var(--pure-color);
     }
 
-    .options a {
-        text-decoration-line: none;
+    .clickHelper {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
     }
 
     @media only screen and (max-width: 40rem) {

@@ -7,7 +7,11 @@ interface BackgroundStateProps {
 interface GalleryStateProps {
     src: string | null,
     alt: string | null,
-    description: string | null
+    description: {
+        text: string,
+        artist: string,
+        href: string,
+    } | null
 }
 
 export let backgroundState = $state<BackgroundStateProps>(
@@ -49,7 +53,7 @@ export function setTheme(themeName: 'teal' | 'blue' | 'woodlands') {
     })
 }
 
-export function setGalleryState(src: string | null, alt: string | null, description: string | null) {
+export function setGalleryState(src: string | null, alt: string | null, description: { text: string, artist: string, href: string } | null) {
     galleryState.src = src
     galleryState.alt = alt
     galleryState.description = description

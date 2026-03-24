@@ -26,7 +26,7 @@
 <style>
     .sidebar {
         position: fixed;
-        padding: 4px;
+        padding: var(--sidebar-padding);
         background-color: var(--container-color);
         width: var(--sidebar-width);
         height: 100vh;

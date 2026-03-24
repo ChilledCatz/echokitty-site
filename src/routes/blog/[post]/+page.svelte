@@ -42,7 +42,7 @@
     }
 
     article {
-        width: 75%;
+        width: 50rem;
         background-color: var(--container-color);
         padding: 1rem;
     }

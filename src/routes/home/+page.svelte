@@ -56,22 +56,24 @@
         </div>
     </section>
 
-    <div style="width: 100%;">
-        <h1>highlights</h1>
-        <section class="container post-section">
-            {#each higlightPosts as post}
-                <Post post={post}/>
-            {/each}
-        </section>
-    </div>
-
-    <div style="width: 100%;">
-        <h1>recent</h1>
-        <section class="container post-section">
-            {#each recentPosts as post}
-                <Post post={post}/>
-            {/each}
-        </section>
+    <div class="feeds">
+        <div>
+            <h1>highlights</h1>
+            <section class="container post-section">
+                {#each higlightPosts as post}
+                    <Post post={post}/>
+                {/each}
+            </section>
+        </div>
+    
+        <div>
+            <h1>recent</h1>
+            <section class="container post-section">
+                {#each recentPosts as post}
+                    <Post post={post}/>
+                {/each}
+            </section>
+        </div>
     </div>
 </div>
 
@@ -81,6 +83,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+    }
+
+    .feeds {
+        width: 100%; 
+        max-width: 1200px; 
+        margin-left: auto; 
+        margin-right: auto;
     }
 
     .post-section {
