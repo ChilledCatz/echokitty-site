@@ -86,7 +86,6 @@
     }
 
     .feeds {
-        width: 100%; 
         max-width: 1200px; 
         margin-left: auto; 
         margin-right: auto;
@@ -97,7 +96,6 @@
         padding: 24px;
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
     }
 
     .introduction {
