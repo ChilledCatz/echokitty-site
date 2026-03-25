@@ -1,11 +1,20 @@
 <script lang="ts">
 	import Taglist from '$lib/components/blog/Taglist.svelte';
     import { setTheme } from '$lib/state.svelte.js';
+	import moment from 'moment';
+	import { onMount } from 'svelte';
 
     let { data } = $props();
-    const { title, description, image, alt, date, tags, Content } = data;
+    const { title, description, image, alt, date, tags, readingTime, Content } = data;
 
-    setTheme('woodlands');
+    let titleDiv: HTMLDivElement;
+    let titleHeight: number|undefined = $state();
+    
+    onMount(() => {
+        titleHeight = titleDiv.clientHeight;
+
+        setTheme('woodlands');
+    })
 </script>
 
 <svelte:head>
@@ -23,11 +32,22 @@
     <article>
         <div class="article-header">
             <img class="header-image" src={image} alt={alt} />
-            <div style="display:flex; align-items: center;">
-                <h1>{title}</h1>
+            
+            <div class="cool-angle" style="height: {titleHeight ? (titleHeight / 16) + 0.25 : 0}rem;"></div>
+
+            <div bind:this={titleDiv}>
+                <div class="byline">
+                    <time datetime={moment(date, "DD-MM-YYYY").toString()}>{date}</time>
+                    <span class="divider-dot">/</span>
+                    <span>{Math.round(readingTime.minutes)} minute read</span>
+                </div>
+                <h1 class="no-margin">{title}</h1>
+                <p class="no-margin" style="font-style: italic;">{description}</p>
+            </div>
+
+            <div style="display:flex; justify-content: end; margin-left: 1rem; margin-right: 1rem;">
                 <Taglist tags={tags} multiline />
             </div>
-            <p style="margin-top: 0px;"><span style="opacity: 50%;">published on:</span> {date}</p>
         </div>
 
         <div class="content">
@@ -47,10 +67,33 @@
         padding: 0 1rem;
     }
 
+    .cool-angle {
+        --div-width: 8rem;
+        float: left;
+        margin-top: 1rem; 
+        shape-outside: polygon(0 0, 100% 0, calc(var(--div-width) - 2rem) 100%); 
+        mask: linear-gradient(
+            -76deg, 
+            transparent 5rem, 
+            black 5rem, 
+            black 5.5rem, 
+            transparent 5.5rem
+        );
+        width: var(--div-width); 
+        background-color: var(--header-color)
+    }
+
     .header-image {
         max-height: 50vh;
         width: 100%;
-        object-fit: contain;
+        object-fit: cover;
+    }
+
+    .byline {
+        margin-top: 1rem;
+        font-size: .875rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-style: italic;
     }
 
     .content {
@@ -62,6 +105,14 @@
         width: 50rem;
         background-color: var(--container-color);
         padding: 1rem;
+    }
+
+    .no-margin {
+        margin: .1rem 0;
+    }
+
+    .divider-dot {
+        color: var(--pure-color);
     }
 
     @media only screen and (max-width: 40rem) {

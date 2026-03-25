@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import remarkFootnotes from 'remark-footnotes';
+import readingTime from 'mdsvex-reading-time';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
@@ -11,7 +12,7 @@ const config = {
 		vitePreprocess(),
 		mdsvex({
 			extension: '.md',
-			remarkPlugins: [remarkFootnotes]
+			remarkPlugins: [remarkFootnotes, readingTime]
 		})
 	],
 	prerender: {

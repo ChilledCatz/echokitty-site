@@ -108,8 +108,8 @@
     @media only screen and (max-width: 40rem) {
         .options {
             top: calc(var(--sidebar-height) + 0.5rem);
-            left: 0;
-            right: 0;
+            left: -50%;
+            width: 100%;
         }
     }
 </style>

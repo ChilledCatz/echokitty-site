@@ -37,19 +37,25 @@
         text-decoration: none;
         color: unset;
         width: 100%;
-        height: 12vh;
         overflow: hidden;
-        padding-bottom: 15px;
-        margin-bottom: 15px;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .container:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
     }
 
     .thumbnail {
+        --size: 20vw;
         position: relative;
         float: left;
-        width: 20vw;
+        width: var(--size);
         height: 12vh;
         mask: linear-gradient(-77.5deg, transparent 50%, black 50%);
-        mask-size: 40vw;
+        mask-size: calc(2 * var(--size));
         mask-position: 10%;
         mask-repeat: no-repeat;
         shape-outside: polygon(0 0, 100% 0, 80% 100%, 0 100%);

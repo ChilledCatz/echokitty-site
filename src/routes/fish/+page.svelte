@@ -11,7 +11,6 @@
             duration: 1000,
             css: (t, u) => {
                 const easing = bounceOut(t)
-                console.log(easing)
 
                 return `
                     transform: translate(0, ${easing * 100}px);
@@ -28,7 +27,7 @@
         element.style.setProperty('transform', 'perspective(1000px) rotateX(360deg) rotateY(360deg)');
         element.style.setProperty('transition', 'all 1s');
 
-        new Audio('/audio/tonyhawk-trick.mp3').play();
+        new Audio('/audio/tonyhawk-trick.mp3').volume(0.4).play();
 
         isDisabled = true;
 
