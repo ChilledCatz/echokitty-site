@@ -7,12 +7,7 @@
     let { data } = $props();
     const { title, description, image, alt, date, tags, readingTime, Content } = data;
 
-    let titleDiv: HTMLDivElement;
-    let titleHeight: number|undefined = $state();
-    
     onMount(() => {
-        titleHeight = titleDiv.clientHeight;
-
         setTheme('woodlands');
     })
 </script>
@@ -33,17 +28,15 @@
         <div class="article-header">
             <img class="header-image" src={image} alt={alt} />
             
-            <div class="cool-angle" style="height: {titleHeight ? (titleHeight / 16) + 0.25 : 0}rem;"></div>
+            <div class="cool-angle"></div>
 
-            <div bind:this={titleDiv}>
-                <div class="byline">
-                    <time datetime={moment(date, "DD-MM-YYYY").toString()}>{date}</time>
-                    <span class="divider-dot">/</span>
-                    <span>{Math.round(readingTime.minutes)} minute read</span>
-                </div>
-                <h1 class="no-margin">{title}</h1>
-                <p class="no-margin" style="font-style: italic;">{description}</p>
+            <div class="byline">
+                <time datetime={moment(date, "DD-MM-YYYY").toString()}>{date}</time>
+                <span class="divider-dot">/</span>
+                <span>{Math.round(readingTime.minutes)} minute read</span>
             </div>
+            <h1 class="no-margin">{title}</h1>
+            <p class="no-margin" style="font-style: italic;">{description}</p>
 
             <div style="display:flex; justify-content: end; margin-left: 1rem; margin-right: 1rem;">
                 <Taglist tags={tags} multiline />
@@ -80,6 +73,7 @@
             transparent 5.5rem
         );
         width: var(--div-width); 
+        height: 5rem;
         background-color: var(--header-color)
     }
 
@@ -113,6 +107,7 @@
 
     .divider-dot {
         color: var(--pure-color);
+        font-style: normal;
     }
 
     @media only screen and (max-width: 40rem) {

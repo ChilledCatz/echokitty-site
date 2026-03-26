@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type { PostInterface } from "$lib/types/types";
-    import { onDestroy, onMount } from "svelte";
-	import type { Attachment } from "svelte/attachments";
     import { fade, fly } from "svelte/transition";
 	import Taglist from "./Taglist.svelte";
+	import Link from "../Link.svelte";
 
     let { post }: { post: PostInterface } = $props()
 </script>
@@ -14,7 +13,8 @@
             <img class="thumbnail-image" src={post.metadata.image} alt="thumbnail image for {post.metadata.title}" />
             <div class="thumbnail-shadow"></div>
         </a>
-        <div class="title">{post.metadata.title} <span style="opacity: 50%; text-wrap: nowrap;">@ {post.metadata.date}</span> </div>
+        <div class="title">{post.metadata.title}</div>
+        <span style="opacity: 50%; text-wrap: nowrap;">@ {post.metadata.date}</span> 
 
         <Taglist tags={post.metadata.tags} />
     </div>
@@ -25,13 +25,15 @@
         class="description"
     >
         {post.metadata.description}
+
+        <Link href={post.path}>read post</Link>
     </div>
 </article>
 
 <style>
     .container {
         display: grid;
-        grid-template-columns: 60% 40%;
+        grid-template-columns: 50% 50%;
         background-color: var(--container-color);
         border-bottom: 3px dotted var(--header-color);
         text-decoration: none;
@@ -58,7 +60,8 @@
         mask-size: calc(2 * var(--size));
         mask-position: 10%;
         mask-repeat: no-repeat;
-        shape-outside: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+        shape-outside: polygon(0 0, 95% 0, 85% 100%, 0 100%);
+        shape-margin: 1rem;
         overflow: hidden;
     }
 
@@ -86,8 +89,10 @@
     }
 
     .title {
-        font-weight: bolder;
-        margin-bottom: 4px;
+        /* font-weight: bold; */
+        margin-bottom: 0.25rem;
+        font-size: 1.25rem;
+        line-height: calc(1.75 / 1.25);
     }
 
     .description {
