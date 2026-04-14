@@ -3,6 +3,7 @@
     import Gallery from "$lib/components/Gallery.svelte";
     import * as images from "$lib/assets/echo/index";
 	import BackgroundImage from "$lib/components/BackgroundImage.svelte";
+    import AudioPlayer from "$lib/components/media/AudioPlayer.svelte";
 
     const items: { src: any; thumbnail: any; alt: string; description: any }[] =
         [
@@ -88,6 +89,8 @@
         character, as long as she's still recognizable and still a trans woman
         :3
     </p>
+    <hr />
+    <AudioPlayer src={'/audio/infanteyes.mp3'} title={'Infant Eyes (Remastered 1998)'} artist={'Wayne Shorter'} />
     <hr />
     <Gallery {items} />
 </section>
