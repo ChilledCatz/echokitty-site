@@ -59,7 +59,7 @@
     <div class="feeds">
         <div>
             <h1>highlights</h1>
-            <section class="container post-section">
+            <section>
                 {#each higlightPosts as post}
                     <Post post={post}/>
                 {/each}
@@ -68,7 +68,7 @@
     
         <div>
             <h1>recent</h1>
-            <section class="container post-section">
+            <section>
                 {#each recentPosts as post}
                     <Post post={post}/>
                 {/each}
@@ -85,18 +85,12 @@
         gap: 1rem;
     }
 
-    .feeds {
-        max-width: 1200px; 
-        margin-left: auto; 
-        margin-right: auto;
-    }
-
-    .post-section {
+    /* .post-section {
         background-color: var(--container-color);
         padding: 24px;
         display: flex;
         flex-wrap: wrap;
-    }
+    } */
 
     .introduction {
         width: calc(50% - (2 * var(--container-padding)) - 0.5rem);

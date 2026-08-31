@@ -7,56 +7,49 @@
     let { post }: { post: PostInterface } = $props()
 </script>
 
-<article class="container">
-    <div class="thumbnail-grid">
-        <a class="thumbnail" href={post.path} title="link to post">
-            <img class="thumbnail-image" src={post.metadata.image} alt="thumbnail image for {post.metadata.title}" />
-            <div class="thumbnail-shadow"></div>
-        </a>
-        <div class="title">{post.metadata.title}</div>
-        <span style="opacity: 50%; text-wrap: nowrap;">@ {post.metadata.date}</span> 
-
-        <Taglist tags={post.metadata.tags} />
+<a class="post-container" href={post.path}>
+    <div class="post-image-container">
+        <img 
+            class="post-image"
+            src={post.metadata.image} 
+            alt="thumbnail image for {post.metadata.title}"
+        >
     </div>
-
-    <div 
-        in:fly={{ duration: 300, delay: 150, y: 25 }} 
-        out:fade={{ duration: 150 }} 
-        class="description"
-    >
-        {post.metadata.description}
-
-        <Link href={post.path}>read post</Link>
+    <div class="post-text-container">
+        <div>
+            <header class="post-title">{post.metadata.title}</header>
+            <div class="post-description">{post.metadata.description}</div>
+        </div>
+        <div>
+            <Taglist tags={post.metadata.tags} />
+        </div>
     </div>
-</article>
+</a>
 
 <style>
-    .container {
-        display: grid;
-        grid-template-columns: 50% 50%;
+    .post-container {
+        display: flex;
+        justify-content: start;
+        /* why is it like thisss */
+        width: 80vw;
         background-color: var(--container-color);
-        border-bottom: 3px dotted var(--header-color);
-        text-decoration: none;
-        color: unset;
-        width: 100%;
+        mask: linear-gradient(-77.5deg, transparent 5%, black 5%, black 95%, transparent 95%);
+        mask-size: calc(2 * var(--size));
+        mask-position: 10%;
+        mask-repeat: no-repeat;
+        shape-outside: polygon(0 0, 95% 0, 85% 100%, 0 100%);
+        shape-margin: 1rem;
         overflow: hidden;
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
+        text-decoration: none;
+
+        transition: all 0.3s ease;
     }
 
-    .container:last-child {
-        padding-bottom: 0;
-        margin-bottom: 0;
-        border-bottom: none;
-    }
-
-    .thumbnail {
-        --size: 20vw;
-        position: relative;
-        float: left;
-        width: var(--size);
-        height: 12vh;
-        mask: linear-gradient(-77.5deg, transparent 50%, black 50%);
+    .post-image-container {
+        width: 34%;
+        height: 10rem;
+        object-fit: cover;
+        mask: linear-gradient(-77.5deg, transparent 14%, black 14%);
         mask-size: calc(2 * var(--size));
         mask-position: 10%;
         mask-repeat: no-repeat;
@@ -65,69 +58,36 @@
         overflow: hidden;
     }
 
-    .thumbnail-shadow {
-        position: absolute;
-        z-index: -10;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--pure-color);
-    }
-
-    .thumbnail-image {
+    .post-image {
         object-fit: cover;
-        mask: inherit;
         width: 100%;
         height: 100%;
-        transition: all 0.3s;
     }
 
-    .thumbnail-image:hover {
-        mask-size: 185%;
-        transform: scale(1.05);
+    .post-text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 66%;
+        padding: 1em;
+        padding-left: 0.5em;
+
+        color: var(--text-color);
     }
 
-    .title {
-        /* font-weight: bold; */
-        margin-bottom: 0.25rem;
-        font-size: 1.25rem;
-        line-height: calc(1.75 / 1.25);
+    .post-title {
+        font-size: 1.5rem;
+        color: var(--header-color);
     }
 
-    .description {
-        opacity: 75%;
-        height: 100%;
+    .post-description {
+        font-size: 0.875rem;
         font-style: italic;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        padding-left: 2%;
     }
 
-    @media only screen and (max-width: 50rem) {
-        .container {
-            display: block;
-            height: 16rem;
-            margin-bottom: 10px;
-        }
+    /* hover styles */
 
-        .thumbnail {
-            width: 100%;
-            height: 10rem;
-            mask-size: 200%;
-            mask: linear-gradient(-77.5deg, transparent 12.5%, black 12.5%, black 87.5%, transparent 87.5%);
-        }
-
-        .thumbnail-image:hover {
-            mask-size: 100%;
-        }
-
-        .title {
-            padding-top: 11rem;
-        }
-
-        .description {
-            display: none;
-        }
+    .post-container:hover {
+        mask: linear-gradient(-77.5deg, transparent 5%, black 5%, black 100%, transparent 100%);
     }
 </style>
