@@ -23,7 +23,7 @@
     span {
         position: absolute;
         width: 100%;
-        top: 0;
+        top: -0.125rem;
         left: 0;
         color: var(--text-color);
         transition: all 0.1s;

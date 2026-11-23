@@ -11,10 +11,16 @@
         url('/fonts/IBMPlexSans.ttf');
 }
 
+@font-face {
+    font-family: 'Agave';
+    src: 
+        url('/fonts/Agave-Regular.ttf');
+}
+
 :root {
     --container-padding: 24px;
-    --sidebar-width: 5rem;
-    --sidebar-height: 5rem;
+    --sidebar-width: 0rem;
+    --sidebar-height: 0rem;
     --sidebar-padding: 0.5rem;
 
     --background-color: #101410;
@@ -31,7 +37,7 @@ body {
     height: 100vh;
     overflow: auto;
     color: var(--text-color);
-    font-family: Selectric;
+    font-family: Agave;
     font-size: medium;
     font-weight: 400;
     letter-spacing: -0.025rem;

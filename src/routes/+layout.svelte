@@ -17,19 +17,16 @@
 
 <style>
     .container {
-        padding: var(--container-padding);
+        max-width: 60rem;
+        margin: 6em auto;
         z-index: 0;
         transition: all 0.3s;
-        width: calc(100vw - var(--sidebar-width) - (2 * var(--sidebar-padding)) - (2 * var(--container-padding)));
-        margin-left: calc(var(--sidebar-width) + (2 * var(--sidebar-padding)));
         overflow-x: visible;
     }
 
-    @media only screen and (max-width: 40rem) {
+    @media only screen and (max-width: 72rem) {
         .container {
-            margin-top: 64px;
-            margin-left: unset;
-            width: calc(100vw - calc(2 * var(--container-padding)));
+            margin: 6em 12.5%;
         }
     }
 

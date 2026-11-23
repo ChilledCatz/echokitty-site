@@ -35,12 +35,12 @@
 <style>
     .blinker {
         color: white;
-        margin: 0 -1rem;
+        margin: 0 -0.5rem;
         animation: blink 1s infinite;
     }
 
     .big {
-        font-size: 400%;
+        font-size: 5rem;
     }
 
     @keyframes blink {
