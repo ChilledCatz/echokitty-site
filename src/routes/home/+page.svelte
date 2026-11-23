@@ -18,94 +18,31 @@
     <title>home</title>
 </svelte:head>
 
-<!--
-<div class="home">
-    <section class="container introduction left-introduction">
-        <TypedTitle texts={[":3", "^w^", ":3c", "hey!", "awawa", "mrrp"]} />
-        <img
-            src={echoMid_bfThumbnail}
-            alt="my fursona, echo. she's a gay nebelung cat with nebuale for eyes"
-        />
-        <p>hi there! i'm kat (she/her) and welcome to my blog!</p>
-        <p>
-            this site also acts as a useful hub for any stuff i may make. right now it's mostly just fursonas and a post or two, but i hope to expand it in the future :)
-        </p>
-    </section>
-
-    <section class="container introduction right-introduction">
-        <h1 class="big">about me</h1>
-        <p>
-            i'm kat / chilledcatz / catz! if the site url wasn't clear enough, i'm tramsgener (she/her) :3
-        </p>
-        <p>
-            i'm in my early twenties. i love making things, going bouldering and yapping about music i like. hope to add some thoughts about albums here soon!    
-        </p>
-        <p>
-            as for the creative stuff: i make pixel art, write, play the guitar... i like to call myself a stuff-maker rather than put myself into one specific category.
-            i also just. don't tend to stick around with anything i do pick up, besides some exceptions. i still love whatever i do though :3
-        </p>
-        <p>
-            also click my links if you want or not :)
-        </p>
-
-        <div class="socials">
-            <button class="socials-button" onclick={() => {window.open('https://bsky.app/profile/oestrogeen.gratis', '_blank')}}>
-                <img src="/images/svg/bluesky.svg" alt="bluesky logo" />
-            </button>
-            <button class="socials-button" onclick={() => {window.open('/rss.xml', '_blank')}}>
-                <img src="/images/svg/rss.svg" alt="rss logo" />
-            </button>
-        </div>
-    </section>
-
-    <div class="feeds">
-        <div>
-            <h1>highlights</h1>
-            <section class="container post-section">
-                {#each higlightPosts as post}
-                    <Post post={post}/>
-                {/each}
-            </section>
-        </div>
-    
-        <div>
-            <h1>recent</h1>
-            <section class="container post-section">
-                {#each recentPosts as post}
-                    <Post post={post}/>
-                {/each}
-            </section>
-        </div>
+<TypedTitle texts={[":3", "^w^", ":3c", "hey!", "awawa", "mrrp"]} />
+<div class="introduction">
+    <FurryPortrait />
+    <p>
+        i'm kat / chilledcatz / catz! if the site url wasn't clear enough, i'm tramsgener (she/her) :3
+    </p>
+    <p>
+        i'm in my early twenties. i love making things, going bouldering and yapping about music i like. hope to add some thoughts about albums here soon!    
+    </p>
+    <p>
+        i make pixel art, write, play the guitar... i like to call myself a maker of things rather than put myself into one specific category.
+        i also just. don't tend to stick around with anything i do pick up, besides some exceptions. i still love whatever i do though :3
+    </p>
+    <p>
+        also click my links if you want or not :)
+    </p>
+    <div class="socials">
+        <button class="socials-button" onclick={() => {window.open('https://bsky.app/profile/oestrogeen.gratis', '_blank')}}>
+            <img src="/images/svg/bluesky.svg" alt="bluesky logo" />
+        </button>
+        <button class="socials-button" onclick={() => {window.open('/rss.xml', '_blank')}}>
+            <img src="/images/svg/rss.svg" alt="rss logo" />
+        </button>
     </div>
 </div>
--->
-    <TypedTitle texts={[":3", "^w^", ":3c", "hey!", "awawa", "mrrp"]} />
-    <div class="introduction">
-        <FurryPortrait />
-
-        <p>
-            i'm kat / chilledcatz / catz! if the site url wasn't clear enough, i'm tramsgener (she/her) :3
-        </p>
-        <p>
-            i'm in my early twenties. i love making things, going bouldering and yapping about music i like. hope to add some thoughts about albums here soon!    
-        </p>
-        <p>
-            i make pixel art, write, play the guitar... i like to call myself a stuff-maker rather than put myself into one specific category.
-            i also just. don't tend to stick around with anything i do pick up, besides some exceptions. i still love whatever i do though :3
-        </p>
-        <p>
-            also click my links if you want or not :)
-        </p>
-
-        <div class="socials">
-            <button class="socials-button" onclick={() => {window.open('https://bsky.app/profile/oestrogeen.gratis', '_blank')}}>
-                <img src="/images/svg/bluesky.svg" alt="bluesky logo" />
-            </button>
-            <button class="socials-button" onclick={() => {window.open('/rss.xml', '_blank')}}>
-                <img src="/images/svg/rss.svg" alt="rss logo" />
-            </button>
-        </div>
-    </div>
 
 <!-- would be cool to have the introduction transition in first, and then load the other divs in one by one left to right -->
 <style>

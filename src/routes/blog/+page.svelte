@@ -12,9 +12,11 @@
     <title>blog</title>
 </svelte:head>
 
-<section class="container">
+<div class="title">
     <h1 class="big">blog</h1>
     <p>now available as an <Link href="/rss.xml">rss feed</Link>!</p>
+</div>
+<section class="container">
     <section style="width: 100%;">
         {#each data.posts as post}
             <Post post={post} />
@@ -23,16 +25,15 @@
 </section>
 
 <style>
-    .container {
+    .title {
         display: flex;
-        width: calc(100% - (2 * var(--container-padding)) - 0.5rem);
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
         justify-content: space-between;
         align-items: baseline;
+    }
+
+    .container {
+        display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
     }
 
     p {

@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
 	import { bounceOut } from "svelte/easing";
 	import { fade } from "svelte/transition";
+    import { page } from "$app/state";
 
     let isDisabled = $state(false);
     let showFish = $state(false);
@@ -27,7 +28,9 @@
         element.style.setProperty('transform', 'perspective(1000px) rotateX(360deg) rotateY(360deg)');
         element.style.setProperty('transition', 'all 1s');
 
-        new Audio('/audio/tonyhawk-trick.mp3').volume(0.4).play();
+        const trick = new Audio('/audio/tonyhawk-trick.mp3');
+        trick.volume = 0.2;
+        trick.play();
 
         isDisabled = true;
 
@@ -41,6 +44,10 @@
 
     onMount(() => {showFish = true})
 </script>
+
+<h1>{page.status}</h1>
+<p>{page.error.message}</p>
+<p>He Will Fix Things :)</p>
 
 {#if (showFish)}
     <button
@@ -62,8 +69,8 @@
 <style>
     .rotate-box {
         position: relative;
-        width: 50%;
-        height: 75vh;
+        width: 100%;
+        height: 50vh;
         transform-style: preserve-3d;
         background: unset;
         border: unset;

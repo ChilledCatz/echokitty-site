@@ -72,11 +72,10 @@
 
 <BackgroundImage src={images.coverImg} alt="pixel art of echo standing in a field of tall grass against a starry night sky. the north star seems to shine down over part of her snout" />
 
+<h1 class="big">echo</h1>
+<i>/ echo orion | she/her | 174cm /</i>
 <section class="container characterSheet">
-    <h1 class="big" style="margin-bottom: -0.25rem;">echo</h1>
-    <i>/ echo orion | she/her | 174cm /</i>
-    <hr />
-    <p>
+    <p style="margin-top: 0rem;">
         echo is my fursona! she's a quiet nebelung cat with nebulae for eyes, 
         which change depending on her mood. she loves ambient music, her guitar 
         and tranquil moments with a cup of tea or coffee. although, if she has the

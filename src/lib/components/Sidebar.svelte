@@ -1,7 +1,6 @@
 <script lang="ts">
     import { clickOutside } from "./events/clickOutside";
     import { page } from "$app/state";
-  import Link from "./Link.svelte";
 
     const links = [
         { href: "/home", title: "home", icon: '/images/svg/home.svg' },
@@ -82,6 +81,7 @@
         height: 4em;
         display: grid;
         z-index: 99;
+        background: linear-gradient(var(--background-color), transparent);
         backdrop-filter: invert();
     }
 
@@ -106,7 +106,6 @@
 
     .dropdown {
         position: relative;
-        backdrop-filter: invert();
     }
 
     .dropdown-options {

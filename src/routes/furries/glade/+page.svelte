@@ -46,11 +46,10 @@
     <title>glade</title>
 </svelte:head>
 
+<h1 class="big">glade</h1>
+<i>/ glade | it/she | 215cm /</i>
 <section class="container characterSheet">
-    <h1 class="big" style="margin-bottom: -0.25rem;">glade</h1>
-    <i>/ glade | it/she | 215cm /</i>
-    <hr>
-    <p>
+    <p style="margin-top: 0rem;">
       glade's a friend of echo. it's more loud and out there than her and likes to tease her for being a bit too much of a shut-in at times.
       it likes playing bass and baking, somehow knows too much about thrifting clothes and should not be trusted with treats or snacks :3
     </p>
