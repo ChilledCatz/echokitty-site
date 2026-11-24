@@ -3,12 +3,13 @@
 </script>
 
 <a href={href} {...restProps}>
-    <span>{@render children()}</span>
+    <span aria-hidden="true">{@render children()}</span>
     {@render children()}
 </a>
 
 <style>
     a {
+        display: inline-block;
         position: relative;
         color: rgba(0, 0, 0, 0.8);
         text-decoration-color: var(--link-color);
@@ -22,8 +23,9 @@
 
     span {
         position: absolute;
+        user-select: none;
         width: 100%;
-        top: -0.125rem;
+        top: 0;
         left: 0;
         color: var(--text-color);
         transition: all 0.1s;

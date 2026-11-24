@@ -1,7 +1,7 @@
 <script lang="ts">
     import { refSheetThumbnail } from "$lib/assets/echo";
     import { glade_thumbnail } from "$lib/assets/glade";
-  import Link from "../Link.svelte";
+    import Link from "../Link.svelte";
 
     const furries = [
         { src: refSheetThumbnail, url: '~/furries/echo.png', alt: "my fursona, echo. she's a gay nebelung cat with nebuale for eyes" },

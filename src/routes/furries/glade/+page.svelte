@@ -54,7 +54,7 @@
       it likes playing bass and baking, somehow knows too much about thrifting clothes and should not be trusted with treats or snacks :3
     </p>
     <p>
-      i got glade as an adopt from <span><Link href="https://pinxsite.carrd.co/" target="_blank">necapinx</Link></span>! 
+      i got glade as an adopt from <Link href="https://pinxsite.carrd.co/" target="_blank">necapinx!</Link> 
       so far this is all of the art i have to show for her... i'd love to get some more commissioned though ^^  
     </p>
     <Gallery items={items} />

@@ -40,7 +40,6 @@ body {
     font-family: Agave;
     font-size: medium;
     font-weight: 400;
-    letter-spacing: -0.025rem;
     transition: all 1s;
 }
 
@@ -72,7 +71,7 @@ br {
 
 section.container {
     background-color: var(--container-color);
-    padding: 24px;
+    padding: 1.5em;
     box-shadow: 8px 8px var(--pure-color);
 }
 
@@ -80,23 +79,8 @@ section.characterSheet {
     width: 50%;
 }
 
-@media only screen and (max-width: 40rem) {
-    :root {
-        --container-padding: 12px;
-        --sidebar-width: 100vw;
-        --sidebar-height: 64px;
-        --sidebar-padding: 4px;
-    }
-
-    body {
-        padding-top: 12px;
-    }
-
-    section.container {
-        padding: 12px;
-    }
-
+@media only screen and (max-width: 60rem) {
     section.characterSheet {
-        width: 100%;
+        width: calc(100% - 3em);
     }
 }

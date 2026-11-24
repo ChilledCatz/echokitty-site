@@ -1,7 +1,7 @@
 <script lang="ts">
     import echoMid_bfThumbnail from "$lib/assets/echo/thumbnails/echoMid_bfThumbnail.png";
 	import Post from "$lib/components/blog/Post.svelte";
-  import FurryPortrait from "$lib/components/home/FurryPortrait.svelte";
+    import FurryPortrait from "$lib/components/home/FurryPortrait.svelte";
 	import TypedTitle from "$lib/components/home/TypedTitle.svelte";
     import { setTheme } from '$lib/state.svelte'
 	import type { PostInterface } from "$lib/types/types.js";
